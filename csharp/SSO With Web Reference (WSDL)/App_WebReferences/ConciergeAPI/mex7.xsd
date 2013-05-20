@@ -1,0 +1,2242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://membersuite.com/contracts" elementFormDefault="qualified" targetNamespace="http://membersuite.com/contracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" />
+  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" />
+  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Reporting" />
+  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd21" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.CustomField" />
+  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Console" />
+  <xs:element name="DescribeProducts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="entityID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="productsToDescribe" nillable="true" type="q1:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DescribeProductsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="DescribeProductsResult" nillable="true" type="q2:ConciergeResultOfArrayOfProductInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderForm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="order" nillable="true" type="q3:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderFormResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetOrderFormResult" nillable="true" type="q4:ConciergeResultOfArrayOfControlMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderFormForProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="productID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrderFormForProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetOrderFormForProductResult" nillable="true" type="q5:ConciergeResultOfArrayOfControlMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="msOrderToProcess" nillable="true" type="q6:MemberSuiteObject" />
+        <xs:element minOccurs="0" name="antiDuplicationKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ProcessOrderResult" nillable="true" type="q7:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrderBillingInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ccNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="expDate" nillable="true" type="xs:dateTime" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="billingAddress" nillable="true" type="q8:Address" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOrderBillingInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="UpdateOrderBillingInfoResult" nillable="true" type="q9:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateInvoiceBillingInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="invoiceID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="poNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="billingEmailAddress" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="billingAddress" nillable="true" type="q10:Address" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateInvoiceBillingInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="UpdateInvoiceBillingInfoResult" nillable="true" type="q11:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="msOrderToAdjust" nillable="true" type="q12:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="AdjustOrderResult" nillable="true" type="q13:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessReturn">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="msReturn" nillable="true" type="q14:MemberSuiteObject" />
+        <xs:element minOccurs="0" name="autoGenerateRefunds" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessReturnResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ProcessReturnResult" nillable="true" type="q15:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveFulfillmentBatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="msoFulfillmentBatch" nillable="true" type="q16:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveFulfillmentBatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="SaveFulfillmentBatchResult" nillable="true" type="q17:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessFulfillmentBatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fulfillmentBatchID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessFulfillmentBatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ProcessFulfillmentBatchResult" nillable="true" type="q18:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FulfillOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="itemsToFulfill" nillable="true" type="q19:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FulfillOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="FulfillOrderResult" nillable="true" type="q20:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShipOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="itemsToShip" nillable="true" type="q21:ArrayOfstring" />
+        <xs:element minOccurs="0" name="shipDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="shippingMethod" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="trackingNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShipOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ShipOrderResult" nillable="true" type="q22:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BillOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BillOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="BillOrderResult" nillable="true" type="q23:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PreProcessOrder">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="msOrderToFinalize" nillable="true" type="q24:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PreProcessOrderResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="PreProcessOrderResult" nillable="true" type="q25:ConciergeResultOfPreProcessedOrderPacket" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessInventoryTransaction">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="inventoryTransaction" nillable="true" type="q26:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessInventoryTransactionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ProcessInventoryTransactionResult" nillable="true" type="q27:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessRenewals">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="membershipOrganizationID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="batchID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="renewalBatchName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="searchToUse" nillable="true" type="q28:Search" />
+        <xs:element minOccurs="0" name="sendOutEmails" type="xs:boolean" />
+        <xs:element minOccurs="0" name="jobStatusNotificationEmail" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessRenewalsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ProcessRenewalsResult" nillable="true" type="q29:ConciergeResultOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateInsertionOrderInvoices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="issueId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="batchName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="invoiceTermsId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="searchToUse" nillable="true" type="q30:Search" />
+        <xs:element minOccurs="0" name="automaticallyEmailInvoices" type="xs:boolean" />
+        <xs:element minOccurs="0" name="jobStatusNotificationEmail" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateInsertionOrderInvoicesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GenerateInsertionOrderInvoicesResult" nillable="true" type="q31:ConciergeResultOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPrimaryMembership">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="membershipOrganizationID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="entityID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPrimaryMembershipResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetPrimaryMembershipResult" nillable="true" type="q32:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultChapterProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="membershipTypeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="chapterID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultChapterProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetDefaultChapterProductResult" nillable="true" type="q33:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultSectionProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="membershipTypeID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sectionID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultSectionProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetDefaultSectionProductResult" nillable="true" type="q34:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicableMembershipDuesProducts">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="membershipOrganizationID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="entityID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicableMembershipDuesProductsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetApplicableMembershipDuesProductsResult" nillable="true" type="q35:ConciergeResultOfArrayOfMembershipProductInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DropMemberships">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="s" nillable="true" type="q36:Search" />
+        <xs:element minOccurs="0" name="terminationReasonID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newStatusID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="terminationDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DropMembershipsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="DropMembershipsResult" nillable="true" type="q37:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicableChaptersForMembershipType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="membershipTypeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicableChaptersForMembershipTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetApplicableChaptersForMembershipTypeResult" nillable="true" type="q38:ConciergeResultOfArrayOfNameValueStringPair" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicableRegistrationFees">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="entityID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetApplicableRegistrationFeesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetApplicableRegistrationFeesResult" nillable="true" type="q39:ConciergeResultOfArrayOfEventRegistrationProductInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventManifest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="entityID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="registrationFeeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventManifestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetEventManifestResult" nillable="true" type="q40:ConciergeResultOfEventManifest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompetitionEntryInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="competitionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="entityId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompetitionEntryInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetCompetitionEntryInformationResult" nillable="true" type="q41:ConciergeResultOfCompetitionEntryInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyToJobPosting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="jobPostingID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="resumeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ApplyToJobPostingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ApplyToJobPostingResult" nillable="true" type="q42:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResumeAsHtml">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="resumeID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResumeAsHtmlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetResumeAsHtmlResult" nillable="true" type="q43:ConciergeResultOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCharts">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllChartsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetAllChartsResult" nillable="true" type="q44:ConciergeResultOfArrayOfChartDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllKPIDefinitions">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllKPIDefinitionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetAllKPIDefinitionsResult" nillable="true" type="q45:ConciergeResultOfArrayOfKPIDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllWidgetDefinitions">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllWidgetDefinitionsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetAllWidgetDefinitionsResult" nillable="true" type="q46:ConciergeResultOfArrayOfWidgetDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildChart">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="chartName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="context" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuildChartResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="BuildChartResult" nillable="true" type="q47:ConciergeResultOfChartManifest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKPIs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="kpisToRun" nillable="true" type="q48:ArrayOfNameValueStringPair" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetKPIsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetKPIsResult" nillable="true" type="q49:ConciergeResultOfArrayOfKPI" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PingExtensionService">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="msoService" nillable="true" type="q50:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PingExtensionServiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="PingExtensionServiceResult" nillable="true" type="q51:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteMailMerge">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="s" nillable="true" type="q52:Search" />
+        <xs:element minOccurs="0" name="mailMergeTemplate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="output" type="q53:MailMergeOutputFormat" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteMailMergeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ExecuteMailMergeResult" nillable="true" type="q54:ConciergeResultOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetConfigurationSetting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ns" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetConfigurationSettingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="SetConfigurationSettingResult" nillable="true" type="q55:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConfigurationSetting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ns" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="settingName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConfigurationSettingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetConfigurationSettingResult" nillable="true" type="q56:ConciergeResultOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllConfigurationSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ns" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllConfigurationSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetAllConfigurationSettingsResult" nillable="true" type="q57:ConciergeResultOfArrayOfNameValuePair" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailableAssociationTemplates">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAvailableAssociationTemplatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetAvailableAssociationTemplatesResult" nillable="true" type="q58:ConciergeResultOfArrayOfNameValueStringPair" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProvisionAssociation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sourceAssociationID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="msoAssociation" nillable="true" type="q59:MemberSuiteObject" />
+        <xs:element minOccurs="0" name="confirmationEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="includeData" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProvisionAssociationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ProvisionAssociationResult" nillable="true" type="q60:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObliterateAssociation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="associationID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObliterateAssociationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ObliterateAssociationResult" nillable="true" type="q61:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConciergeAPIVersion">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConciergeAPIVersionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetConciergeAPIVersionResult" nillable="true" type="q62:ConciergeResultOfMemberSuiteVersion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FlushCaches">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FlushCachesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="FlushCachesResult" nillable="true" type="q63:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveFiscalYear">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="msFiscalYear" nillable="true" type="q64:MemberSuiteObject" />
+        <xs:element minOccurs="0" name="numberOfPeriods" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveFiscalYearResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="SaveFiscalYearResult" nillable="true" type="q65:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveBatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="msBatch" nillable="true" type="q66:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveBatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="SaveBatchResult" nillable="true" type="q67:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveCredit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="msCredit" nillable="true" type="q68:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveCreditResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="SaveCreditResult" nillable="true" type="q69:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOpenBatches">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOpenBatchesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetOpenBatchesResult" nillable="true" type="q70:ConciergeResultOfArrayOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="msInvoice" nillable="true" type="q71:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="CreateInvoiceResult" nillable="true" type="q72:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="msInvoice" nillable="true" type="q73:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="AdjustInvoiceResult" nillable="true" type="q74:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessRefund">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="refund" nillable="true" type="q75:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessRefundResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ProcessRefundResult" nillable="true" type="q76:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllProductsInBatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="batchIDs" nillable="true" type="q77:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllProductsInBatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetAllProductsInBatchResult" nillable="true" type="q78:ConciergeResultOfArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustRefund">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="refund" nillable="true" type="q79:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustRefundResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="AdjustRefundResult" nillable="true" type="q80:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WipeProFormaInvoices">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="wipeInvoicesBefore" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WipeProFormaInvoicesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="WipeProFormaInvoicesResult" nillable="true" type="q81:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelInvoice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="invoiceID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelInvoiceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="CancelInvoiceResult" nillable="true" type="q82:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostBatches">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="batchIDs" nillable="true" type="q83:ArrayOfstring" />
+        <xs:element minOccurs="0" name="newBatchForProFormaInvoices" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PostBatchesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="PostBatchesResult" nillable="true" type="q84:ConciergeResultOfArrayOfBatchPostingResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeBatch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="targetBatchID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q85="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="transactionsToChange" nillable="true" type="q85:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeBatchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q86="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ChangeBatchResult" nillable="true" type="q86:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnPostBatches">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="batchIDs" nillable="true" type="q87:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnPostBatchesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="UnPostBatchesResult" nillable="true" type="q88:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadBatches">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="batchIDs" nillable="true" type="q89:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadBatchesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="DownloadBatchesResult" nillable="true" type="q90:ConciergeResultOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateBatchReadinessReport">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="batches" nillable="true" type="q91:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateBatchReadinessReportResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GenerateBatchReadinessReportResult" nillable="true" type="q92:ConciergeResultOfBatchReadinessReport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecordPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="paymentToRecord" nillable="true" type="q93:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecordPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="RecordPaymentResult" nillable="true" type="q94:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessCreditCardPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="paymentToRecord" nillable="true" type="q95:MemberSuiteObject" />
+        <xs:element xmlns:q96="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="creditCardToProcess" nillable="true" type="q96:CreditCard" />
+        <xs:element minOccurs="0" name="antiDuplicationKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessCreditCardPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ProcessCreditCardPaymentResult" nillable="true" type="q97:ConciergeResultOfPaymentProcessorResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="paymentToAdjust" nillable="true" type="q98:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AdjustPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="AdjustPaymentResult" nillable="true" type="q99:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RefundPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="paymentID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="batchID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="instructions" nillable="true" type="q100:ArrayOfPaymentAdjustmentInstruction" />
+        <xs:element minOccurs="0" name="autoGenerateRefund" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RefundPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="RefundPaymentResult" nillable="true" type="q101:ConciergeResultOfPaymentProcessorResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VoidPayment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="paymentID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VoidPaymentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="VoidPaymentResult" nillable="true" type="q102:ConciergeResultOfPaymentProcessorResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditRevenueRecognitionSchedule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="revenueRecognitionSchedule" nillable="true" type="q103:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditRevenueRecognitionScheduleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="EditRevenueRecognitionScheduleResult" nillable="true" type="q104:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditBillingSchedule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="billingSchedule" nillable="true" type="q105:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditBillingScheduleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="EditBillingScheduleResult" nillable="true" type="q106:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelBillingSchedule">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="billingScheduleId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelBillingScheduleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="CancelBillingScheduleResult" nillable="true" type="q107:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessBillingScheduleEntry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="scheduleID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProcessBillingScheduleEntryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ProcessBillingScheduleEntryResult" nillable="true" type="q108:ConciergeResultOfPaymentProcessorResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecognizeDeferralRevenue">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fiscalYearID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="periodNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecognizeDeferralRevenueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="RecognizeDeferralRevenueResult" nillable="true" type="q109:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClosePeriod">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fiscalYearID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="periodNumber" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClosePeriodResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ClosePeriodResult" nillable="true" type="q110:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAssociationSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="newSettings" nillable="true" type="q111:ArrayOfNameValueStringPair" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAssociationSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="UpdateAssociationSettingsResult" nillable="true" type="q112:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get360Packet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="s" nillable="true" type="q113:Search" />
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="oneClicks" nillable="true" type="q114:ArrayOfSearch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get360PacketResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="Get360PacketResult" nillable="true" type="q115:ConciergeResultOfData360Packet" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Save">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="msoObjectToSave" nillable="true" type="q116:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="SaveResult" nillable="true" type="q117:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Get">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetResult" nillable="true" type="q118:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Query">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="objectType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClause" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orderBy" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startIndex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QueryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="QueryResult" nillable="true" type="q119:ConciergeResultOfQueryResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QuerySingle">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="objectType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="whereClause" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QuerySingleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="QuerySingleResult" nillable="true" type="q120:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadFile">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fileID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadFileResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="DownloadFileResult" nillable="true" type="q121:ConciergeResultOfSharedStorageLocation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="recordID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetNameResult" nillable="true" type="q122:ConciergeResultOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNames">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q123="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="recordID" nillable="true" type="q123:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNamesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetNamesResult" nillable="true" type="q124:ConciergeResultOfArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAutoNumberSeeds">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllAutoNumberSeedsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetAllAutoNumberSeedsResult" nillable="true" type="q125:ConciergeResultOfArrayOfAutoNumberSeedInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Delete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="DeleteResult" nillable="true" type="q126:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAutoNumberSeedInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="objectName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAutoNumberSeedInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetAutoNumberSeedInfoResult" nillable="true" type="q127:ConciergeResultOfAutoNumberSeedInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAutoNumberSeed">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="objectName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newSeed" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAutoNumberSeedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="UpdateAutoNumberSeedResult" nillable="true" type="q128:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MassUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="recordType" nillable="true" type="xs:string" />
+        <xs:element xmlns:q129="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="recordIdentifiers" nillable="true" type="q129:ArrayOfstring" />
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="msoNewValues" nillable="true" type="q130:MemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MassUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="MassUpdateResult" nillable="true" type="q131:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MassDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="recordType" nillable="true" type="xs:string" />
+        <xs:element xmlns:q132="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="recordIdentifiers" nillable="true" type="q132:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MassDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="MassDeleteResult" nillable="true" type="q133:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DescribeSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="searchContext" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DescribeSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="DescribeSearchResult" nillable="true" type="q134:ConciergeResultOfSearchManifest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSearchFieldMetadataFromFullPath">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="searchContext" nillable="true" type="xs:string" />
+        <xs:element xmlns:q135="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fieldFullPaths" nillable="true" type="q135:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSearchFieldMetadataFromFullPathResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetSearchFieldMetadataFromFullPathResult" nillable="true" type="q136:ConciergeResultOfArrayOfFieldMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="searchToExecute" nillable="true" type="q137:Search" />
+        <xs:element minOccurs="0" name="startRecord" type="xs:int" />
+        <xs:element minOccurs="0" name="maximumNumberOfRecordsToReturn" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ExecuteSearchResult" nillable="true" type="q138:ConciergeResultOfSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteSearches">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="searchesToExecute" nillable="true" type="q139:ArrayOfSearch" />
+        <xs:element minOccurs="0" name="startRecord" type="xs:int" />
+        <xs:element minOccurs="0" name="maximumNumberOfRecordsToReturn" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteSearchesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ExecuteSearchesResult" nillable="true" type="q140:ConciergeResultOfArrayOfSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DescribeCompiledSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="searchToInspect" nillable="true" type="q141:Search" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DescribeCompiledSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="DescribeCompiledSearchResult" nillable="true" type="q142:ConciergeResultOfSearchManifest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DescribeCompiledSearches">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q143="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="searchesToInspect" nillable="true" type="q143:ArrayOfSearch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DescribeCompiledSearchesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q144="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="DescribeCompiledSearchesResult" nillable="true" type="q144:ConciergeResultOfArrayOfSearchManifest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBuiltInSearches">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBuiltInSearchesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetBuiltInSearchesResult" nillable="true" type="q145:ConciergeResultOfArrayOfNameValuePair" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadBuiltInSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadBuiltInSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q146="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="LoadBuiltInSearchResult" nillable="true" type="q146:ConciergeResultOfBuiltInSearch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteSearchWithFileOutput">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="searchToExecute" nillable="true" type="q147:Search" />
+        <xs:element minOccurs="0" name="searchOutputType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="abortIfZeroResults" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExecuteSearchWithFileOutputResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ExecuteSearchWithFileOutputResult" nillable="true" type="q148:ConciergeResultOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QuickSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="searchType" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="searchContext" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="queryText" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startRecord" type="xs:int" />
+        <xs:element minOccurs="0" name="maximumNumberOfRecordsToReturn" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QuickSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="QuickSearchResult" nillable="true" type="q149:ConciergeResultOfSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPotentialEmailBlastRecipients">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPotentialEmailBlastRecipientsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q150="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetPotentialEmailBlastRecipientsResult" nillable="true" type="q150:ConciergeResultOfArrayOfNameValueStringPair" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetZipCodesWithinSpecifiedRadiusByZip">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="zipCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="radiusInMiles" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetZipCodesWithinSpecifiedRadiusByZipResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q151="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetZipCodesWithinSpecifiedRadiusByZipResult" nillable="true" type="q151:ConciergeResultOfArrayOfZipCodeRadius" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetZipCodesWithinSpecifiedRadiusByCityState">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="twoLetterState" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="radiusInMiles" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetZipCodesWithinSpecifiedRadiusByCityStateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q152="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetZipCodesWithinSpecifiedRadiusByCityStateResult" nillable="true" type="q152:ConciergeResultOfArrayOfZipCodeRadius" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PreviewEmailBlast">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q153="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="templateToUse" nillable="true" type="q153:EmailTemplate" />
+        <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="search" nillable="true" type="q154:Search" />
+        <xs:element minOccurs="0" name="destinationEmail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="count" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PreviewEmailBlastResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmailTemplate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="templateName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmailTemplateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetEmailTemplateResult" nillable="true" type="q155:ConciergeResultOfEmailTemplate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="emailTemplateName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q156="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="targets" nillable="true" type="q156:ArrayOfstring" />
+        <xs:element minOccurs="0" name="overrideEmailAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="SendEmailResult" nillable="true" type="q157:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendCustomizedEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="template" nillable="true" type="q158:EmailTemplate" />
+        <xs:element xmlns:q159="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="targets" nillable="true" type="q159:ArrayOfstring" />
+        <xs:element minOccurs="0" name="overrideEmailAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendCustomizedEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="SendCustomizedEmailResult" nillable="true" type="q160:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEmailTemplates">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllEmailTemplatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q161="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetAllEmailTemplatesResult" nillable="true" type="q161:ConciergeResultOfArrayOfEmailTemplate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateAddress">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="a" nillable="true" type="q162:Address" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateAddressResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ValidateAddressResult" nillable="true" type="q163:AddressValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PopulateCityStateFromPostalCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q164="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="a" nillable="true" type="q164:Address" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PopulateCityStateFromPostalCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q165="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="PopulateCityStateFromPostalCodeResult" nillable="true" type="q165:AddressValidationResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPotentialDuplicates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="mso" nillable="true" type="q166:MemberSuiteObject" />
+        <xs:element xmlns:q167="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ruleIDs" nillable="true" type="q167:ArrayOfstring" />
+        <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="spec" nillable="true" type="q168:Search" />
+        <xs:element minOccurs="0" name="startRecord" type="xs:int" />
+        <xs:element minOccurs="0" name="pageSize" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindPotentialDuplicatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q169="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="FindPotentialDuplicatesResult" nillable="true" type="q169:ConciergeResultOfSearchResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultDuplicateDetectionRules">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="recordType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultDuplicateDetectionRulesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q170="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetDefaultDuplicateDetectionRulesResult" nillable="true" type="q170:ConciergeResultOfArrayOfDuplicateDetectionRule" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Merge">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="source" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="destination" nillable="true" type="xs:string" />
+        <xs:element xmlns:q171="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="sourceFieldsToUse" nillable="true" type="q171:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MergeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q172="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="MergeResult" nillable="true" type="q172:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateMultipleAddresses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q173="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="entityIdentifiers" nillable="true" type="q173:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateMultipleAddressesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q174="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ValidateMultipleAddressesResult" nillable="true" type="q174:ConciergeResultOfBulkAddressValidationReport" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadReportDefinition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q175="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Reporting" minOccurs="0" name="manifest" nillable="true" type="q175:ReportManifest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadReportDefinitionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q176="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="LoadReportDefinitionResult" nillable="true" type="q176:ConciergeResultOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListAllReports">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListAllReportsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q177="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ListAllReportsResult" nillable="true" type="q177:ConciergeResultOfArrayOfPartialReportDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReportInformation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="reportName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetReportInformationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q178="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetReportInformationResult" nillable="true" type="q178:ConciergeResultOfPartialReportDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrievePortalInformationByUrl">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="hostName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrievePortalInformationByUrlResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q179="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="RetrievePortalInformationByUrlResult" nillable="true" type="q179:ConciergeResultOfPortalInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrievePortalInformationByID">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrievePortalInformationByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q180="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="RetrievePortalInformationByIDResult" nillable="true" type="q180:ConciergeResultOfPortalInformation" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecordPermission">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="recordID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecordPermissionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q181="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetRecordPermissionResult" nillable="true" type="q181:ConciergeResultOfSecurityLockAccessLevel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Login">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="loginDestination" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q182="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="LoginResult" nillable="true" type="q182:ConciergeResultOfLoginResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ResetPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q183="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ResetPasswordResult" nillable="true" type="q183:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendWelcomePortalUserEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portalUserId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="emailAddress" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendWelcomePortalUserEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q184="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="SendWelcomePortalUserEmailResult" nillable="true" type="q184:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendForgottenPortalPasswordEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portalUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nextUrl" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendForgottenPortalPasswordEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q185="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="SendForgottenPortalPasswordEmailResult" nillable="true" type="q185:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrCreatePortalUserForEntity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="entityId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOrCreatePortalUserForEntityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q186="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetOrCreatePortalUserForEntityResult" nillable="true" type="q186:ConciergeResultOfmsPortalUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAndGetOrCreatePortalUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="loginIDOrEmail" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchAndGetOrCreatePortalUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q187="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="SearchAndGetOrCreatePortalUserResult" nillable="true" type="q187:ConciergeResultOfmsPortalUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginWithHash">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hash" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginWithHashResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q188="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="LoginWithHashResult" nillable="true" type="q188:ConciergeResultOfLoginResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginPortalUserWithHash">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portalUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hash" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginPortalUserWithHashResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q189="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="LoginPortalUserWithHashResult" nillable="true" type="q189:ConciergeResultOfLoginResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginToPortal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portalUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="portalPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginToPortalResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q190="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="LoginToPortalResult" nillable="true" type="q190:ConciergeResultOfLoginResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTemporaryAccessKey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="secretAccessKey" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTemporaryAccessKeyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q191="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="CreateTemporaryAccessKeyResult" nillable="true" type="q191:ConciergeResultOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTemporaryAccessKeyWithHash">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="hash" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="secretAccessKey" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTemporaryAccessKeyWithHashResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q192="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="CreateTemporaryAccessKeyWithHashResult" nillable="true" type="q192:ConciergeResultOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreatePortalSecurityToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="portalUserName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="signingCertificateId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="signature" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreatePortalSecurityTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q193="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="CreatePortalSecurityTokenResult" nillable="true" type="q193:ConciergeResultOfbase64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateConsoleSecurityToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="signingCertificateId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="signature" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateConsoleSecurityTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q194="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="CreateConsoleSecurityTokenResult" nillable="true" type="q194:ConciergeResultOfbase64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginWithToken">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="securityToken" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="signingCertificateId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="signature" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginWithTokenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q195="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="LoginWithTokenResult" nillable="true" type="q195:ConciergeResultOfLoginResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="oldPassword" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="newPassword" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q196="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ChangePasswordResult" nillable="true" type="q196:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SwitchAssociation">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SwitchAssociationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q197="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="SwitchAssociationResult" nillable="true" type="q197:ConciergeResultOfLoginResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Logout">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LogoutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q198="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="LogoutResult" nillable="true" type="q198:LoginResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecordRecordAccess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="recordID" nillable="true" type="xs:string" />
+        <xs:element xmlns:q199="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="cmd" nillable="true" type="q199:CommandShortcut" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecordRecordAccessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q200="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="RecordRecordAccessResult" nillable="true" type="q200:ConciergeResultOfArrayOfCommandShortcut" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecordError">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecordErrorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q201="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="RecordErrorResult" nillable="true" type="q201:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUsersThanCanAccessCurrentAssociation">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUsersThanCanAccessCurrentAssociationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q202="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetAllUsersThanCanAccessCurrentAssociationResult" nillable="true" type="q202:ConciergeResultOfArrayOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WhoAmI">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WhoAmIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q203="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="WhoAmIResult" nillable="true" type="q203:ConciergeResultOfLoginResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccessibleEntitiesForEntity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="entityId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccessibleEntitiesForEntityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q204="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetAccessibleEntitiesForEntityResult" nillable="true" type="q204:ConciergeResultOfArrayOfLoginResult.AccessibleEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAssociationConfiguration">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAssociationConfigurationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q205="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetAssociationConfigurationResult" nillable="true" type="q205:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFavorite">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q206="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="cmd" nillable="true" type="q206:CommandShortcut" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddFavoriteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q207="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="AddFavoriteResult" nillable="true" type="q207:ConciergeResultOfArrayOfCommandShortcut" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserPreferences">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserPreferencesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q208="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetUserPreferencesResult" nillable="true" type="q208:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommandDefinition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="commandName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCommandDefinitionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q209="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetCommandDefinitionResult" nillable="true" type="q209:ConciergeResultOfCommandDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCommands">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCommandsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q210="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetAllCommandsResult" nillable="true" type="q210:ConciergeResultOfArrayOfPartialCommandDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConsoleMetadata">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetConsoleMetadataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q211="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetConsoleMetadataResult" nillable="true" type="q211:ConciergeResultOfConsoleMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DescribeObject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="objectType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DescribeObjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q212="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="DescribeObjectResult" nillable="true" type="q212:ConciergeResultOfClassMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DescribeObjectBuiltInFields">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="objectType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DescribeObjectBuiltInFieldsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q213="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="DescribeObjectBuiltInFieldsResult" nillable="true" type="q213:ConciergeResultOfClassMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultDashboard">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nameOfCommand" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="context" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultDashboardResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q214="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetDefaultDashboardResult" nillable="true" type="q214:ConciergeResultOfDashboardMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultDataEntryPageLayout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="objectType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultDataEntryPageLayoutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q215="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetDefaultDataEntryPageLayoutResult" nillable="true" type="q215:ConciergeResultOfDataEntryViewMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultPortalPageLayout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="objectType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultPortalPageLayoutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q216="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetDefaultPortalPageLayoutResult" nillable="true" type="q216:ConciergeResultOfDataEntryViewMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultData360PageLayout">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="objectType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDefaultData360PageLayoutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q217="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="GetDefaultData360PageLayoutResult" nillable="true" type="q217:ConciergeResultOfData360ViewMetadata" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClassMetadata">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="objectType" nillable="true" type="xs:string" />
+        <xs:element xmlns:q218="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="metadataToSave" nillable="true" type="q218:ClassMetadataOverride" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateClassMetadataResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q219="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="UpdateClassMetadataResult" nillable="true" type="q219:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListAllObjects">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="includeAbstract" type="xs:boolean" />
+        <xs:element minOccurs="0" name="baseObjectType" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListAllObjectsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q220="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="ListAllObjectsResult" nillable="true" type="q220:ConciergeResultOfArrayOfPartialObjectDefinition" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCustomField">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q221="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.CustomField" minOccurs="0" name="packet" nillable="true" type="q221:CustomFieldCreationPacket" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCustomFieldResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q222="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="UpdateCustomFieldResult" nillable="true" type="q222:ConciergeResultOfMemberSuiteObject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTabs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q223="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Console" minOccurs="0" name="newTabs" nillable="true" type="q223:ArrayOfTab" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTabsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q224="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="UpdateTabsResult" nillable="true" type="q224:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePreferences">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q225="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="preferences" nillable="true" type="q225:ArrayOfNameValueStringPair" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePreferencesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q226="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" minOccurs="0" name="UpdatePreferencesResult" nillable="true" type="q226:ConciergeResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="IntegrationLink.master.cs"
+    Inherits="IntegrationLink" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" type="text/css" href="images/style.css" />
+</head>
+<body>
+    <div id="siteContentWrap">
+        <div id="breadcrumbTableContainer">
+            <!-- breadcrumb container -->
+            <div id="breadcrumbContainer" class="yellow">
+                <div id="breadcrumbContent">
+                    <div id="breadcrumbs">
+                        <a href="https://console.production.membersuite.com/">Home</a>   </div>
+                    <h2>
+                        <asp:ContentPlaceHolder ID="PageTitle" runat="server">
+                </asp:ContentPlaceHolder>
+
+    
+    </h2>
+                </div>
+
+                           
+                <div id="breadcrumbContainerRight">
+              
+                </div>
+                <div id="pageActionsContainer">
+                 <asp:Label ID="lblCurrentUser" runat="server" />
+              </div>       
+            </div>
+            <!-- / breadcrumb container -->
+        </div>
+        <form id="form1" runat="server">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+        </form>
+    </div>
+</body>
+</html>

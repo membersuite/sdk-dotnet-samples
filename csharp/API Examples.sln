@@ -1,0 +1,197 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API Usage Examples", "API Usage Examples\API Usage Examples.csproj", "{871EE994-1F84-4ABA-8DF7-103FC7275CDD}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Integration Link Example", "Integration Link Example", "{C18CCF4E-ABB3-4DA0-8F9C-9478C8BD9C80}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "Perforce Project"
+		SccAuxPath = ""
+		SccLocalPath = ".."
+		SccProvider = "MSSCCI:Perforce SCM"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/Integration Link Example"
+		Debug.AspNetCompiler.PhysicalPath = "Integration Link Example\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Integration Link Example\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Integration Link Example"
+		Release.AspNetCompiler.PhysicalPath = "Integration Link Example\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Integration Link Example\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "61802"
+		VWDVirtualPath = "/"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With Manual SOAP Messages", "SSO With Manual SOAP Messages", "{118B1258-EAF2-4F0B-A5A2-403A4D5552CF}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "Perforce Project"
+		SccAuxPath = ""
+		SccLocalPath = ".."
+		SccProvider = "MSSCCI:Perforce SCM"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/SSO With Manual SOAP Messages"
+		Debug.AspNetCompiler.PhysicalPath = "SSO With Manual SOAP Messages\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\SSO With Manual SOAP Messages\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/SSO With Manual SOAP Messages"
+		Release.AspNetCompiler.PhysicalPath = "SSO With Manual SOAP Messages\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\SSO With Manual SOAP Messages\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62344"
+		VWDVirtualPath = "/"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With SDK", "SSO With SDK", "{8019992A-F56A-4164-B35E-6FE3E8AEF5E5}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "Perforce Project"
+		SccAuxPath = ""
+		SccLocalPath = ".."
+		SccProvider = "MSSCCI:Perforce SCM"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/SSO With SDK"
+		Debug.AspNetCompiler.PhysicalPath = "SSO With SDK\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\SSO With SDK\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/SSO With SDK"
+		Release.AspNetCompiler.PhysicalPath = "SSO With SDK\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\SSO With SDK\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62349"
+		VWDVirtualPath = "/"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With Web Reference (WSDL)", "SSO With Web Reference (WSDL)", "{2EA8C51F-7781-44CC-ABAE-8B724EE47C4C}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "Perforce Project"
+		SccAuxPath = ""
+		SccLocalPath = ".."
+		SccProvider = "MSSCCI:Perforce SCM"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/SSO With Web Reference (WSDL)"
+		Debug.AspNetCompiler.PhysicalPath = "SSO With Web Reference (WSDL)\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\SSO With Web Reference (WSDL)\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/SSO With Web Reference (WSDL)"
+		Release.AspNetCompiler.PhysicalPath = "SSO With Web Reference (WSDL)\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\SSO With Web Reference (WSDL)\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62355"
+		VWDVirtualPath = "/"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 6
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = API\u0020Usage\u0020Examples\\API\u0020Usage\u0020Examples.csproj
+		SccLocalPath1 = .
+		SccProjectFilePathRelativizedFromConnection1 = API\u0020Usage\u0020Examples\\
+		SccWebProject2 = true
+		SccProjectUniqueName2 = Integration\u0020Link\u0020Example
+		SccLocalPath2 = .
+		SccProjectFilePathRelativizedFromConnection2 = Integration\u0020Link\u0020Example\\
+		SccProjectEnlistmentChoice2 = 2
+		SccWebProject3 = true
+		SccProjectUniqueName3 = SSO\u0020With\u0020Manual\u0020SOAP\u0020Messages
+		SccLocalPath3 = .
+		SccProjectFilePathRelativizedFromConnection3 = SSO\u0020With\u0020Manual\u0020SOAP\u0020Messages\\
+		SccProjectEnlistmentChoice3 = 2
+		SccWebProject4 = true
+		SccProjectUniqueName4 = SSO\u0020With\u0020SDK
+		SccLocalPath4 = .
+		SccProjectFilePathRelativizedFromConnection4 = SSO\u0020With\u0020SDK\\
+		SccProjectEnlistmentChoice4 = 2
+		SccWebProject5 = true
+		SccProjectUniqueName5 = SSO\u0020With\u0020Web\u0020Reference\u0020(WSDL)
+		SccLocalPath5 = .
+		SccProjectFilePathRelativizedFromConnection5 = SSO\u0020With\u0020Web\u0020Reference\u0020(WSDL)\\
+		SccProjectEnlistmentChoice5 = 2
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{871EE994-1F84-4ABA-8DF7-103FC7275CDD}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{871EE994-1F84-4ABA-8DF7-103FC7275CDD}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{871EE994-1F84-4ABA-8DF7-103FC7275CDD}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{871EE994-1F84-4ABA-8DF7-103FC7275CDD}.Debug|x86.ActiveCfg = Debug|x86
+		{871EE994-1F84-4ABA-8DF7-103FC7275CDD}.Debug|x86.Build.0 = Debug|x86
+		{871EE994-1F84-4ABA-8DF7-103FC7275CDD}.Release|Any CPU.ActiveCfg = Release|x86
+		{871EE994-1F84-4ABA-8DF7-103FC7275CDD}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{871EE994-1F84-4ABA-8DF7-103FC7275CDD}.Release|Mixed Platforms.Build.0 = Release|x86
+		{871EE994-1F84-4ABA-8DF7-103FC7275CDD}.Release|x86.ActiveCfg = Release|x86
+		{871EE994-1F84-4ABA-8DF7-103FC7275CDD}.Release|x86.Build.0 = Release|x86
+		{C18CCF4E-ABB3-4DA0-8F9C-9478C8BD9C80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C18CCF4E-ABB3-4DA0-8F9C-9478C8BD9C80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C18CCF4E-ABB3-4DA0-8F9C-9478C8BD9C80}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C18CCF4E-ABB3-4DA0-8F9C-9478C8BD9C80}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C18CCF4E-ABB3-4DA0-8F9C-9478C8BD9C80}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C18CCF4E-ABB3-4DA0-8F9C-9478C8BD9C80}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{C18CCF4E-ABB3-4DA0-8F9C-9478C8BD9C80}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{C18CCF4E-ABB3-4DA0-8F9C-9478C8BD9C80}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C18CCF4E-ABB3-4DA0-8F9C-9478C8BD9C80}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C18CCF4E-ABB3-4DA0-8F9C-9478C8BD9C80}.Release|x86.ActiveCfg = Debug|Any CPU
+		{118B1258-EAF2-4F0B-A5A2-403A4D5552CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{118B1258-EAF2-4F0B-A5A2-403A4D5552CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{118B1258-EAF2-4F0B-A5A2-403A4D5552CF}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{118B1258-EAF2-4F0B-A5A2-403A4D5552CF}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{118B1258-EAF2-4F0B-A5A2-403A4D5552CF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{118B1258-EAF2-4F0B-A5A2-403A4D5552CF}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{118B1258-EAF2-4F0B-A5A2-403A4D5552CF}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{118B1258-EAF2-4F0B-A5A2-403A4D5552CF}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{118B1258-EAF2-4F0B-A5A2-403A4D5552CF}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{118B1258-EAF2-4F0B-A5A2-403A4D5552CF}.Release|x86.ActiveCfg = Debug|Any CPU
+		{8019992A-F56A-4164-B35E-6FE3E8AEF5E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8019992A-F56A-4164-B35E-6FE3E8AEF5E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8019992A-F56A-4164-B35E-6FE3E8AEF5E5}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8019992A-F56A-4164-B35E-6FE3E8AEF5E5}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8019992A-F56A-4164-B35E-6FE3E8AEF5E5}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8019992A-F56A-4164-B35E-6FE3E8AEF5E5}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{8019992A-F56A-4164-B35E-6FE3E8AEF5E5}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{8019992A-F56A-4164-B35E-6FE3E8AEF5E5}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8019992A-F56A-4164-B35E-6FE3E8AEF5E5}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8019992A-F56A-4164-B35E-6FE3E8AEF5E5}.Release|x86.ActiveCfg = Debug|Any CPU
+		{2EA8C51F-7781-44CC-ABAE-8B724EE47C4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EA8C51F-7781-44CC-ABAE-8B724EE47C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EA8C51F-7781-44CC-ABAE-8B724EE47C4C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2EA8C51F-7781-44CC-ABAE-8B724EE47C4C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2EA8C51F-7781-44CC-ABAE-8B724EE47C4C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2EA8C51F-7781-44CC-ABAE-8B724EE47C4C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EA8C51F-7781-44CC-ABAE-8B724EE47C4C}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{2EA8C51F-7781-44CC-ABAE-8B724EE47C4C}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2EA8C51F-7781-44CC-ABAE-8B724EE47C4C}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2EA8C51F-7781-44CC-ABAE-8B724EE47C4C}.Release|x86.ActiveCfg = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

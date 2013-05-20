@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command.Views" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command.Views" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" />
+  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests" />
+  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" />
+  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Reporting" />
+  <xs:complexType name="DataEntryViewMetadata">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests" base="q1:MetadataBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="HideLeftColumn" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LeftColumnHeader" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="RightColumnHeader" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" minOccurs="0" name="Sections" nillable="true" type="q2:ArrayOfViewMetadata.ControlSection" />
+          <xs:element minOccurs="0" name="Steps" nillable="true" type="tns:ArrayOfDataEntryViewMetadata.StepDef" />
+          <xs:element minOccurs="0" name="UsefulTips" nillable="true" type="tns:DataEntryViewMetadata.UsefulTipsDef" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataEntryViewMetadata" nillable="true" type="tns:DataEntryViewMetadata" />
+  <xs:complexType name="ArrayOfDataEntryViewMetadata.StepDef">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DataEntryViewMetadata.StepDef" nillable="true" type="tns:DataEntryViewMetadata.StepDef" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDataEntryViewMetadata.StepDef" nillable="true" type="tns:ArrayOfDataEntryViewMetadata.StepDef" />
+  <xs:complexType name="DataEntryViewMetadata.StepDef">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" base="q3:CommandShortcut">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsCurrent" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DataEntryViewMetadata.StepDef" nillable="true" type="tns:DataEntryViewMetadata.StepDef" />
+  <xs:complexType name="DataEntryViewMetadata.UsefulTipsDef">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Show" type="xs:boolean" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="Tips" nillable="true" type="q4:ArrayOfCommandShortcut" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DataEntryViewMetadata.UsefulTipsDef" nillable="true" type="tns:DataEntryViewMetadata.UsefulTipsDef" />
+  <xs:complexType name="Data360ViewMetadata">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AdditionalFields" nillable="true" type="q5:ArrayOfstring" />
+      <xs:element minOccurs="0" name="DefaultOneClick" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="Searches" nillable="true" type="q6:ArrayOfSearch" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" minOccurs="0" name="Sections" nillable="true" type="q7:ArrayOfViewMetadata.ControlSection" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Data360ViewMetadata" nillable="true" type="tns:Data360ViewMetadata" />
+  <xs:complexType name="DashboardMetadata">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests" base="q8:MetadataBase">
+        <xs:sequence>
+          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Reporting" minOccurs="0" name="LeftWidgets" nillable="true" type="q9:ArrayOfWidgetDefinition" />
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Reporting" minOccurs="0" name="RightWidgets" nillable="true" type="q10:ArrayOfWidgetDefinition" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DashboardMetadata" nillable="true" type="tns:DashboardMetadata" />
+  <xs:complexType name="PageLayoutEditorMetadata">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllowFieldRelabeling" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowSectionCreationAndRemoval" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ShowAddAdditionalOutputFieldsLink" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ShowAddSeperatorLink" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PageLayoutEditorMetadata" nillable="true" type="tns:PageLayoutEditorMetadata" />
+  <xs:complexType name="TabularDataViewMetadata">
+    <xs:sequence>
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" minOccurs="0" name="CommandSections" nillable="true" type="q11:ArrayOfViewMetadata.ControlSection" />
+      <xs:element minOccurs="0" name="DisablePaging" type="xs:boolean" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="Fields" nillable="true" type="q12:ArrayOfFieldMetadata" />
+      <xs:element minOccurs="0" name="IDColumn" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RowLevelCommandWidth" type="xs:int" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="RowLevelCommands" nillable="true" type="q13:ArrayOfCommandShortcut" />
+      <xs:element minOccurs="0" name="ShowCheckboxes" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TabularDataViewMetadata" nillable="true" type="tns:TabularDataViewMetadata" />
+</xs:schema>

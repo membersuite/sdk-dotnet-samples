@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching.Operations" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching.Operations" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" />
+  <xs:complexType name="IsOneOfTheFollowing">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" base="q1:SearchOperation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IsOneOfTheFollowing" nillable="true" type="tns:IsOneOfTheFollowing" />
+  <xs:complexType name="Equals">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" base="q2:SearchOperation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Equals" nillable="true" type="tns:Equals" />
+  <xs:complexType name="WhereClause">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" base="q3:SearchOperation">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Clause" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WhereClause" nillable="true" type="tns:WhereClause" />
+  <xs:complexType name="DoesNotEqual">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Equals">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DoesNotEqual" nillable="true" type="tns:DoesNotEqual" />
+  <xs:complexType name="IsBlank">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" base="q4:SearchOperation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IsBlank" nillable="true" type="tns:IsBlank" />
+  <xs:complexType name="IsNotBlank">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:IsBlank">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IsNotBlank" nillable="true" type="tns:IsNotBlank" />
+  <xs:complexType name="IsGreaterThanOrEqualTo">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" base="q5:SearchOperation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IsGreaterThanOrEqualTo" nillable="true" type="tns:IsGreaterThanOrEqualTo" />
+  <xs:complexType name="IsLessThan">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:IsGreaterThanOrEqualTo">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IsLessThan" nillable="true" type="tns:IsLessThan" />
+  <xs:complexType name="Keyword">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" base="q6:SearchOperation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Keyword" nillable="true" type="tns:Keyword" />
+  <xs:complexType name="NoKeyword">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Keyword">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="NoKeyword" nillable="true" type="tns:NoKeyword" />
+  <xs:complexType name="IsNotOneOfTheFollowing">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:IsOneOfTheFollowing">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IsNotOneOfTheFollowing" nillable="true" type="tns:IsNotOneOfTheFollowing" />
+  <xs:complexType name="IsBetween">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" base="q7:SearchOperation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IsBetween" nillable="true" type="tns:IsBetween" />
+  <xs:complexType name="IsGreaterThan">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" base="q8:SearchOperation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IsGreaterThan" nillable="true" type="tns:IsGreaterThan" />
+  <xs:complexType name="ContainsOneOfTheFollowing">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q9="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" base="q9:SearchOperation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ContainsOneOfTheFollowing" nillable="true" type="tns:ContainsOneOfTheFollowing" />
+  <xs:complexType name="IsNotBetween">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:IsBetween">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IsNotBetween" nillable="true" type="tns:IsNotBetween" />
+  <xs:complexType name="IsLessThanOrEqual">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:IsGreaterThan">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="IsLessThanOrEqual" nillable="true" type="tns:IsLessThanOrEqual" />
+  <xs:complexType name="DoesNotContainOneOfTheFollowing">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ContainsOneOfTheFollowing">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DoesNotContainOneOfTheFollowing" nillable="true" type="tns:DoesNotContainOneOfTheFollowing" />
+  <xs:complexType name="SpecialOperation">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q10="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" base="q10:SearchOperation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="SpecialOperation" nillable="true" type="tns:SpecialOperation" />
+  <xs:complexType name="Contains">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q11="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" base="q11:SearchOperation">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Contains" nillable="true" type="tns:Contains" />
+  <xs:complexType name="DoesNotContain">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Contains">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="DoesNotContain" nillable="true" type="tns:DoesNotContain" />
+</xs:schema>

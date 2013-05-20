@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types.KPIs" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types.KPIs" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="KPIType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Integer" />
+      <xs:enumeration value="Double" />
+      <xs:enumeration value="Percentage" />
+      <xs:enumeration value="Currency" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="KPIType" nillable="true" type="tns:KPIType" />
+  <xs:simpleType name="KPIPeriod">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Current" />
+      <xs:enumeration value="Today" />
+      <xs:enumeration value="Week" />
+      <xs:enumeration value="Month" />
+      <xs:enumeration value="Quarter" />
+      <xs:enumeration value="FiscalQuarter" />
+      <xs:enumeration value="Year" />
+      <xs:enumeration value="FiscalYear" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="KPIPeriod" nillable="true" type="tns:KPIPeriod" />
+  <xs:complexType name="ArrayOfKPI">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KPI" nillable="true" type="tns:KPI" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKPI" nillable="true" type="tns:ArrayOfKPI" />
+  <xs:complexType name="KPI">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentPeriod" type="tns:KPIPeriod" />
+      <xs:element minOccurs="0" name="CurrentPeriodIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="CurrentPeriodValue" type="xs:double" />
+      <xs:element minOccurs="0" name="Flag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PreviousPeriod" nillable="true" type="tns:KPIPeriod" />
+      <xs:element minOccurs="0" name="PreviousPeriodIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="PreviousPeriodValue" type="xs:double" />
+      <xs:element minOccurs="0" name="Type" type="tns:KPIType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KPI" nillable="true" type="tns:KPI" />
+</xs:schema>

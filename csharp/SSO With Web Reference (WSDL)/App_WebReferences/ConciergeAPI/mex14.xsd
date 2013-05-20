@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.CustomField" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.CustomField" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+  <xs:complexType name="CustomFieldCreationPacket">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="CustomFieldContainer" nillable="true" type="q1:MemberSuiteObject" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="Data360PageLayouts" nillable="true" type="q2:ArrayOfNameValuePair" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="DataEntryPageLayouts" nillable="true" type="q3:ArrayOfNameValuePair" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="PortalPageLayouts" nillable="true" type="q4:ArrayOfNameValuePair" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomFieldCreationPacket" nillable="true" type="tns:CustomFieldCreationPacket" />
+</xs:schema>

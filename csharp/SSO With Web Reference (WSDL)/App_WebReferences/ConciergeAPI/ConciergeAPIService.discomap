@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd10" filename="mex.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd9" filename="mex0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd20" filename="mex1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd17" filename="mex2.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd13" filename="mex3.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd8" filename="mex4.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd3" filename="mex5.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd2" filename="mex6.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="https://localhost:81/mex" filename="ConciergeAPIService.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd0" filename="mex7.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd7" filename="mex8.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd6" filename="mex9.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd5" filename="mex10.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd4" filename="mex11.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd18" filename="mex12.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd1" filename="mex13.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd21" filename="mex14.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd11" filename="mex15.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd19" filename="mex16.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd14" filename="mex17.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd16" filename="mex18.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd12" filename="mex19.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="https://localhost:81/mex?xsd=xsd15" filename="mex20.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Reporting" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Reporting" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests" />
+  <xs:complexType name="ArrayOfWidgetDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WidgetDefinition" nillable="true" type="tns:WidgetDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWidgetDefinition" nillable="true" type="tns:ArrayOfWidgetDefinition" />
+  <xs:complexType name="WidgetDefinition">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests" base="q1:MetadataBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Collapsed" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Control" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DefaultOnLeftSide" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Icon" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="Properties" nillable="true" type="q2:ArrayOfNameValueStringPair" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WidgetDefinition" nillable="true" type="tns:WidgetDefinition" />
+  <xs:complexType name="ArrayOfChartDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ChartDefinition" nillable="true" type="tns:ChartDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfChartDefinition" nillable="true" type="tns:ArrayOfChartDefinition" />
+  <xs:complexType name="ChartDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllowNullContext" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ExpectedContext" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChartDefinition" nillable="true" type="tns:ChartDefinition" />
+  <xs:complexType name="ArrayOfKPIDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KPIDefinition" nillable="true" type="tns:KPIDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKPIDefinition" nillable="true" type="tns:ArrayOfKPIDefinition" />
+  <xs:complexType name="KPIDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllowNullContext" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ExpectedContext" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KPIDefinition" nillable="true" type="tns:KPIDefinition" />
+  <xs:complexType name="ChartManifest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChartDefinition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataSource" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChartManifest" nillable="true" type="tns:ChartManifest" />
+  <xs:complexType name="ReportManifest">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="Parameters" nillable="true" type="q3:SerializableDictionaryOfstringanyType" />
+      <xs:element minOccurs="0" name="ReportSpecificationName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReportManifest" nillable="true" type="tns:ReportManifest" />
+</xs:schema>
