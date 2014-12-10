@@ -1,14 +1,16 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API Usage Examples", "API Usage Examples\API Usage Examples.csproj", "{871EE994-1F84-4ABA-8DF7-103FC7275CDD}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Integration Link Example", "Integration Link Example", "{C18CCF4E-ABB3-4DA0-8F9C-9478C8BD9C80}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Integration Link Example", "Integration Link Example\", "{C18CCF4E-ABB3-4DA0-8F9C-9478C8BD9C80}"
 	ProjectSection(WebsiteProperties) = preProject
-		SccProjectName = "Perforce Project"
+		SccProjectName = ""
 		SccAuxPath = ""
-		SccLocalPath = ".."
-		SccProvider = "MSSCCI:Perforce SCM"
+		SccLocalPath = ""
+		SccProvider = ""
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/Integration Link Example"
 		Debug.AspNetCompiler.PhysicalPath = "Integration Link Example\"
@@ -28,12 +30,12 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Integration Link Example", 
 		VWDVirtualPath = "/"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With Manual SOAP Messages", "SSO With Manual SOAP Messages", "{118B1258-EAF2-4F0B-A5A2-403A4D5552CF}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With Manual SOAP Messages", "SSO With Manual SOAP Messages\", "{118B1258-EAF2-4F0B-A5A2-403A4D5552CF}"
 	ProjectSection(WebsiteProperties) = preProject
-		SccProjectName = "Perforce Project"
+		SccProjectName = ""
 		SccAuxPath = ""
-		SccLocalPath = ".."
-		SccProvider = "MSSCCI:Perforce SCM"
+		SccLocalPath = ""
+		SccProvider = ""
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/SSO With Manual SOAP Messages"
 		Debug.AspNetCompiler.PhysicalPath = "SSO With Manual SOAP Messages\"
@@ -53,12 +55,12 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With Manual SOAP Messag
 		VWDVirtualPath = "/"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With SDK", "SSO With SDK", "{8019992A-F56A-4164-B35E-6FE3E8AEF5E5}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With SDK", "SSO With SDK\", "{8019992A-F56A-4164-B35E-6FE3E8AEF5E5}"
 	ProjectSection(WebsiteProperties) = preProject
-		SccProjectName = "Perforce Project"
+		SccProjectName = ""
 		SccAuxPath = ""
-		SccLocalPath = ".."
-		SccProvider = "MSSCCI:Perforce SCM"
+		SccLocalPath = ""
+		SccProvider = ""
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/SSO With SDK"
 		Debug.AspNetCompiler.PhysicalPath = "SSO With SDK\"
@@ -78,12 +80,12 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With SDK", "SSO With SD
 		VWDVirtualPath = "/"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With Web Reference (WSDL)", "SSO With Web Reference (WSDL)", "{2EA8C51F-7781-44CC-ABAE-8B724EE47C4C}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With Web Reference (WSDL)", "SSO With Web Reference (WSDL)\", "{2EA8C51F-7781-44CC-ABAE-8B724EE47C4C}"
 	ProjectSection(WebsiteProperties) = preProject
-		SccProjectName = "Perforce Project"
+		SccProjectName = ""
 		SccAuxPath = ""
-		SccLocalPath = ".."
-		SccProvider = "MSSCCI:Perforce SCM"
+		SccLocalPath = ""
+		SccProvider = ""
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/SSO With Web Reference (WSDL)"
 		Debug.AspNetCompiler.PhysicalPath = "SSO With Web Reference (WSDL)\"
@@ -104,33 +106,6 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With Web Reference (WSD
 	EndProjectSection
 EndProject
 Global
-	GlobalSection(SourceCodeControl) = preSolution
-		SccNumberOfProjects = 6
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = API\u0020Usage\u0020Examples\\API\u0020Usage\u0020Examples.csproj
-		SccLocalPath1 = .
-		SccProjectFilePathRelativizedFromConnection1 = API\u0020Usage\u0020Examples\\
-		SccWebProject2 = true
-		SccProjectUniqueName2 = Integration\u0020Link\u0020Example
-		SccLocalPath2 = .
-		SccProjectFilePathRelativizedFromConnection2 = Integration\u0020Link\u0020Example\\
-		SccProjectEnlistmentChoice2 = 2
-		SccWebProject3 = true
-		SccProjectUniqueName3 = SSO\u0020With\u0020Manual\u0020SOAP\u0020Messages
-		SccLocalPath3 = .
-		SccProjectFilePathRelativizedFromConnection3 = SSO\u0020With\u0020Manual\u0020SOAP\u0020Messages\\
-		SccProjectEnlistmentChoice3 = 2
-		SccWebProject4 = true
-		SccProjectUniqueName4 = SSO\u0020With\u0020SDK
-		SccLocalPath4 = .
-		SccProjectFilePathRelativizedFromConnection4 = SSO\u0020With\u0020SDK\\
-		SccProjectEnlistmentChoice4 = 2
-		SccWebProject5 = true
-		SccProjectUniqueName5 = SSO\u0020With\u0020Web\u0020Reference\u0020(WSDL)
-		SccLocalPath5 = .
-		SccProjectFilePathRelativizedFromConnection5 = SSO\u0020With\u0020Web\u0020Reference\u0020(WSDL)\\
-		SccProjectEnlistmentChoice5 = 2
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms

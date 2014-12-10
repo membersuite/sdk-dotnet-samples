@@ -14,8 +14,10 @@ namespace API_Usage_Examples
         public override void Run()
         {
             /* This sample is going to login to the association and create a record with a name, 
-             * email, and birthday that you specify. Once saved, the system will display the ID 
-             * of the individual created, the age (which MemberSuite calculates), and will automatically
+             * email, and birthday that you specify. It will also add two phone numbers and one
+             * address using the flattened fields created for each AddressType/PhoneNumberType.
+             * Once saved, the system will display the ID of the individual created, 
+             * the age (which MemberSuite calculates), and will automatically
              * launch the 360 view of that record in the web browser */
 
             // First, we need to prepare the proxy with the proper security settings.
@@ -82,6 +84,29 @@ namespace API_Usage_Examples
             }
             person.DateOfBirth = dob;
 
+            //Now add a phone number of the type "Home" and "Work" using the flattened phone number fields
+            //that are dynamically created for each defined PhoneNumberType
+            person["Work_PhoneNumber"] = "555-555-5555";
+            person["Home_PhoneNumber"] = "555-555-1234";
+
+            //And set the preferred phone number type to be the one with the type "Home"
+            person.PreferredPhoneNumberType = getIdFromCode(api, "PhoneNumberType", "Home");
+
+            //Now add an address of the type "Home" using the flattened address field
+            //that is dynamically created for each defined AddressType
+            Address a = new Address();
+            a.Line1 = "1060 W Addison St";
+            a.City = "Chicago";
+            a.State = "IL";
+            a.PostalCode = "60613";
+            a.Country = "USA";
+
+            person["Home_Address"] = a;
+
+            //Set the preferred address type 
+            //Since there's only one it would already be preferred but this is how to set it if there are multiple
+            person.PreferredAddressType = getIdFromCode(api, "AddressType", "Home");
+
             // ok, so we can save this now
             var result = api.Save(person);
 
@@ -96,6 +121,16 @@ namespace API_Usage_Examples
 
              
 
+        }
+
+        private string getIdFromCode (IConciergeAPIService api, string type, string code)
+        {
+            //Query for the ID of a record of the given type matching the given code
+            string msql = string.Format("SELECT ID FROM {0} WHERE Code = '{1}'", type, code);
+            var searchResult = api.ExecuteMSQL(msql, 0, 1);
+            string result = searchResult.ResultValue.SearchResult.Table.Rows[0]["ID"].ToString();
+            
+            return result;
         }
     }
 }
