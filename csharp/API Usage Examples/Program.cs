@@ -56,14 +56,21 @@ namespace API_Usage_Examples
                 var selectedType = types[number];
                 Console.WriteLine("Demo '{0}' selected... executing...", selectedType.Name);
 
-                // instantiate the demo class
-                ConciergeSampleBase demoToRun = (ConciergeSampleBase)Activator.CreateInstance(selectedType);
-                demoToRun.Run(); // and run it
+                try
+                {
+                    // instantiate the demo class
+                    ConciergeSampleBase demoToRun = (ConciergeSampleBase) Activator.CreateInstance(selectedType);
+                    demoToRun.Run(); // and run it
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Unhandled Error:");
+                    Console.WriteLine("-------------------------------------------------------");
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine("-------------------------------------------------------");
+                    Console.WriteLine();
+                }
             } while (1 == 1);
-
-
-
-
         }
     }
 }

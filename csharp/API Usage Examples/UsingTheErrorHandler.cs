@@ -29,34 +29,25 @@ namespace API_Usage_Examples
             // First, we need to prepare the proxy with the proper security settings.
             // This allows the proxy to generate the appropriate security header. For more information
             // on how to get these settings, see http://api.docs.membersuite.com in the Getting Started section
-            ConciergeAPIProxyGenerator.SetAccessKeyId(ConfigurationManager.AppSettings["AccessKeyID"]);
-            ConciergeAPIProxyGenerator.SetSecretAccessKey(ConfigurationManager.AppSettings["SecretAccessKey"]);
-            ConciergeAPIProxyGenerator.AssociationId = ConfigurationManager.AppSettings["AssociationID"];
+            if (!ConciergeAPIProxyGenerator.IsSecretAccessKeySet)
+            {
+                ConciergeAPIProxyGenerator.SetAccessKeyId(ConfigurationManager.AppSettings["AccessKeyID"]);
+                ConciergeAPIProxyGenerator.SetSecretAccessKey(ConfigurationManager.AppSettings["SecretAccessKey"]);
+                ConciergeAPIProxyGenerator.AssociationId = ConfigurationManager.AppSettings["AssociationID"];
+            }
 
             // ok, let's generate our API proxy
-            IConciergeAPIService api = ConciergeAPIProxyGenerator.GenerateProxy();
+            using (var api = ConciergeAPIProxyGenerator.GenerateProxy())
+            {
+                ConciergeClientExtensions.OnResultError += new EventHandler<ConciergeResultErrorArgs>(ConciergeClientExtensions_OnResultError);
+                ConciergeClientExtensions.SessionExpired += new EventHandler(ConciergeClientExtensions_SessionExpired);
 
-            // now, run a WhoAmI to establish a session
-            var loginResponse = api.WhoAmI();
+                // now, let's intentionally cause an error by trying to save an empty individual
+                msIndividual indiv = new msIndividual();
+                api.Save(indiv);
 
-            if (!loginResponse.Success)
-                throw new ApplicationException("unable to login: " + loginResponse.FirstErrorMessage);
-
-            Console.WriteLine("Login successful.");
-
-            // let's set the session ID, so we don't have to rebuild the session on each call
-            // This isn't required, but it makes accessing the API faster since we can cache your
-            // login credentials
-            ConciergeAPIProxyGenerator.SessionID = loginResponse.ResultValue.SessionID;
-            ConciergeClientExtensions.OnResultError += new EventHandler<ConciergeResultErrorArgs>(ConciergeClientExtensions_OnResultError);
-            ConciergeClientExtensions.SessionExpired += new EventHandler(ConciergeClientExtensions_SessionExpired);
-
-            // now, let's intentionally cause an error by trying to save an empty individual
-            msIndividual indiv = new msIndividual();
-            api.Save(indiv);
-
-            Console.WriteLine("This line will never be reached, as an exception has occurred in the last request.");
-
+                Console.WriteLine("This line will never be reached, as an exception has occurred in the last request.");
+            }
         }
 
         void ConciergeClientExtensions_SessionExpired(object sender, EventArgs e)

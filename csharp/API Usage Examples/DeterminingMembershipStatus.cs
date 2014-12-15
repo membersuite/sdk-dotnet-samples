@@ -31,45 +31,37 @@ namespace API_Usage_Examples
             // First, we need to prepare the proxy with the proper security settings.
             // This allows the proxy to generate the appropriate security header. For more information
             // on how to get these settings, see http://api.docs.membersuite.com in the Getting Started section
-            ConciergeAPIProxyGenerator.SetAccessKeyId(ConfigurationManager.AppSettings["AccessKeyID"]);
-            ConciergeAPIProxyGenerator.SetSecretAccessKey(ConfigurationManager.AppSettings["SecretAccessKey"]);
-            ConciergeAPIProxyGenerator.AssociationId = ConfigurationManager.AppSettings["AssociationID"];
-
-            // ok, let's generate our API proxy
-            IConciergeAPIService api = ConciergeAPIProxyGenerator.GenerateProxy();
-
-            // now, run a WhoAmI to establish a session
-            var loginResponse = api.WhoAmI();
-
-            if (!loginResponse.Success)
-                throw new ApplicationException("unable to login: " + loginResponse.FirstErrorMessage);
-
-            Console.WriteLine("Login successful.");
-
-            // let's set the session ID, so we don't have to rebuild the session on each call
-            // This isn't required, but it makes accessing the API faster since we can cache your
-            // login credentials
-            ConciergeAPIProxyGenerator.SessionID = loginResponse.ResultValue.SessionID;
-
-            string msql = "select LocalID,FirstName, LastName, Membership.ReceivesMemberBenefits from Individual order by LastName";
-
-            // If I needed to check the membership status of someone whose ID I knew, I would say:
-            // string msql = "select TOP 1 LocalID,FirstName, LastName, Membership.ReceivesMemberBenefits from Individual where ID = '%%Id%%' order by LastName";
-
-            var result = api.ExecuteMSQL(msql, 0, null);
-
-            if (!result.Success)
+            if (!ConciergeAPIProxyGenerator.IsSecretAccessKeySet)
             {
-                Console.WriteLine("Search failed: {0}", result.FirstErrorMessage);
-                return;
+                ConciergeAPIProxyGenerator.SetAccessKeyId(ConfigurationManager.AppSettings["AccessKeyID"]);
+                ConciergeAPIProxyGenerator.SetSecretAccessKey(ConfigurationManager.AppSettings["SecretAccessKey"]);
+                ConciergeAPIProxyGenerator.AssociationId = ConfigurationManager.AppSettings["AssociationID"];
             }
 
-            Console.WriteLine("Search successful: {0} results returned.", result.ResultValue.SearchResult.TotalRowCount);
+            // ok, let's generate our API proxy
+            using (var api = ConciergeAPIProxyGenerator.GenerateProxy())
+            {
+                string msql = "select LocalID,FirstName, LastName, Membership.ReceivesMemberBenefits from Individual order by LastName";
+
+                // If I needed to check the membership status of someone whose ID I knew, I would say:
+                // string msql = "select TOP 1 LocalID,FirstName, LastName, Membership.ReceivesMemberBenefits from Individual where ID = '%%Id%%' order by LastName";
+
+                var result = api.ExecuteMSQL(msql, 0, null);
+
+                if (!result.Success)
+                {
+                    Console.WriteLine("Search failed: {0}", result.FirstErrorMessage);
+                    return;
+                }
+
+                Console.WriteLine("Search successful: {0} results returned.",
+                    result.ResultValue.SearchResult.TotalRowCount);
 
 
-            foreach (DataRow row in result.ResultValue.SearchResult.Table.Rows)
-                Console.WriteLine("#{0} - {1}, {2} - Is this person a member? {3}",
-                    row["LocalID"], row["LastName"], row["FirstName"], row["Membership.ReceivesMemberBenefits"]);
+                foreach (DataRow row in result.ResultValue.SearchResult.Table.Rows)
+                    Console.WriteLine("#{0} - {1}, {2} - Is this person a member? {3}",
+                        row["LocalID"], row["LastName"], row["FirstName"], row["Membership.ReceivesMemberBenefits"]);
+            }
         }
     }
 }
