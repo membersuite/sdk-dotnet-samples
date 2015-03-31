@@ -28,6 +28,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Integration Link Example", 
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "61802"
 		VWDVirtualPath = "/"
+		SlnRelativePath = "Integration Link Example\"
 	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With Manual SOAP Messages", "SSO With Manual SOAP Messages\", "{118B1258-EAF2-4F0B-A5A2-403A4D5552CF}"
@@ -53,6 +54,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With Manual SOAP Messag
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "62344"
 		VWDVirtualPath = "/"
+		SlnRelativePath = "SSO With Manual SOAP Messages\"
 	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With SDK", "SSO With SDK\", "{8019992A-F56A-4164-B35E-6FE3E8AEF5E5}"
@@ -78,6 +80,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With SDK", "SSO With SD
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "62349"
 		VWDVirtualPath = "/"
+		SlnRelativePath = "SSO With SDK\"
 	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With Web Reference (WSDL)", "SSO With Web Reference (WSDL)\", "{2EA8C51F-7781-44CC-ABAE-8B724EE47C4C}"
@@ -103,6 +106,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SSO With Web Reference (WSD
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "62355"
 		VWDVirtualPath = "/"
+		SlnRelativePath = "SSO With Web Reference (WSDL)\"
 	EndProjectSection
 EndProject
 Global
