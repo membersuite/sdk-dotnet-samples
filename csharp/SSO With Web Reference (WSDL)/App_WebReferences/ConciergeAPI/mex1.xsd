@@ -1,16 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Resource" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Resource" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="ArrayOfStringResource">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Concierge" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Concierge" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfConciergeError">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="StringResource" nillable="true" type="tns:StringResource" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConciergeError" type="tns:ConciergeError" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfStringResource" nillable="true" type="tns:ArrayOfStringResource" />
-  <xs:complexType name="StringResource">
+  <xs:element name="ArrayOfConciergeError" nillable="true" type="tns:ArrayOfConciergeError" />
+  <xs:complexType name="ConciergeError">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
+      </xs:appinfo>
+    </xs:annotation>
     <xs:sequence>
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" type="tns:ConciergeErrorCode" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OffendingField" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="StringResource" nillable="true" type="tns:StringResource" />
+  <xs:element name="ConciergeError" nillable="true" type="tns:ConciergeError" />
+  <xs:simpleType name="ConciergeErrorCode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="GeneralException" />
+      <xs:enumeration value="SessionExpired" />
+      <xs:enumeration value="InvalidAccessKey" />
+      <xs:enumeration value="UnableToLocateMetadata" />
+      <xs:enumeration value="TimestampMismatch" />
+      <xs:enumeration value="RecordNotCreateable" />
+      <xs:enumeration value="RecordNotFound" />
+      <xs:enumeration value="LanguageNotSupported" />
+      <xs:enumeration value="LoginInvalid" />
+      <xs:enumeration value="UserAccountInactive" />
+      <xs:enumeration value="CannotDeleteLockedRecord" />
+      <xs:enumeration value="ObjectInvalid" />
+      <xs:enumeration value="InvalidQuery" />
+      <xs:enumeration value="CannotRunSearch" />
+      <xs:enumeration value="IllegalParameter" />
+      <xs:enumeration value="AccessDenied" />
+      <xs:enumeration value="RecordAlreadyExists" />
+      <xs:enumeration value="IllegalOperation" />
+      <xs:enumeration value="CreditCardAuthorizationFailed" />
+      <xs:enumeration value="SetupRequired" />
+      <xs:enumeration value="NotLoggedInToAnAssociation" />
+      <xs:enumeration value="ProductSoldOut" />
+      <xs:enumeration value="TrialExpired" />
+      <xs:enumeration value="LicenseViolation" />
+      <xs:enumeration value="DiscountCodeNotAuthorized" />
+      <xs:enumeration value="DiscountCodeUsageLimitExceeded" />
+      <xs:enumeration value="MSQLSyntaxError" />
+      <xs:enumeration value="SimulatedException" />
+      <xs:enumeration value="PaymentDeclined" />
+      <xs:enumeration value="IncompatibleCurrency" />
+      <xs:enumeration value="ExchangeRateInappropriatelySpecified" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ConciergeErrorCode" nillable="true" type="tns:ConciergeErrorCode" />
 </xs:schema>

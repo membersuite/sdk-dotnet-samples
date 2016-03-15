@@ -1,53 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Concierge" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Concierge" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="ArrayOfConciergeError">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Searching" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Searching" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" />
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="SearchManifest">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConciergeError" type="tns:ConciergeError" />
+      <xs:element minOccurs="0" name="BaseObject" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="BatchOperations" nillable="true" type="q1:ArrayOfBatchOperation" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="DefaultFindColumns" nillable="true" type="q2:ArrayOfSearchOutputColumn" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="DefaultQuickSearchColumns" nillable="true" type="q3:ArrayOfSearchOutputColumn" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DefaultQuickSearchCriteria" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="DefaultSelectedFields" nillable="true" type="q5:ArrayOfSearchOutputColumn" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="DefaultSortFieds" nillable="true" type="q6:ArrayOfSearchSortColumn" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailBlastEligible" type="xs:boolean" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="Fields" nillable="true" type="q7:ArrayOfFieldMetadata" />
+      <xs:element minOccurs="0" name="Module" nillable="true" type="xs:string" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="OutputFormats" nillable="true" type="q8:ArrayOfPickListEntry" />
+      <xs:element minOccurs="0" name="SearchContext" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SearchType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ViewCommand" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfConciergeError" nillable="true" type="tns:ArrayOfConciergeError" />
-  <xs:complexType name="ConciergeError">
-    <xs:annotation>
-      <xs:appinfo>
-        <IsValueType xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsValueType>
-      </xs:appinfo>
-    </xs:annotation>
+  <xs:element name="SearchManifest" nillable="true" type="tns:SearchManifest" />
+  <xs:complexType name="ArrayOfSearchManifest">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Code" type="tns:ConciergeErrorCode" />
-      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="OffendingField" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SearchManifest" nillable="true" type="tns:SearchManifest" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ConciergeError" nillable="true" type="tns:ConciergeError" />
-  <xs:simpleType name="ConciergeErrorCode">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="GeneralException" />
-      <xs:enumeration value="SessionExpired" />
-      <xs:enumeration value="InvalidAccessKey" />
-      <xs:enumeration value="UnableToLocateMetadata" />
-      <xs:enumeration value="TimestampMismatch" />
-      <xs:enumeration value="RecordNotCreateable" />
-      <xs:enumeration value="RecordNotFound" />
-      <xs:enumeration value="LanguageNotSupported" />
-      <xs:enumeration value="LoginInvalid" />
-      <xs:enumeration value="UserAccountInactive" />
-      <xs:enumeration value="CannotDeleteLockedRecord" />
-      <xs:enumeration value="ObjectInvalid" />
-      <xs:enumeration value="InvalidQuery" />
-      <xs:enumeration value="CannotRunSearch" />
-      <xs:enumeration value="IllegalParameter" />
-      <xs:enumeration value="AccessDenied" />
-      <xs:enumeration value="RecordAlreadyExists" />
-      <xs:enumeration value="IllegalOperation" />
-      <xs:enumeration value="CreditCardAuthorizationFailed" />
-      <xs:enumeration value="SetupRequired" />
-      <xs:enumeration value="NotLoggedInToAnAssociation" />
-      <xs:enumeration value="ProductSoldOut" />
-      <xs:enumeration value="TrialExpired" />
-      <xs:enumeration value="LicenseViolation" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="ConciergeErrorCode" nillable="true" type="tns:ConciergeErrorCode" />
+  <xs:element name="ArrayOfSearchManifest" nillable="true" type="tns:ArrayOfSearchManifest" />
 </xs:schema>

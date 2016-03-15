@@ -1,38 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:simpleType name="GLAccountType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Asset" />
-      <xs:enumeration value="Liability">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">10</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Equity">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">15</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Revenue">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">20</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="Expense">
-        <xs:annotation>
-          <xs:appinfo>
-            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">30</EnumerationValue>
-          </xs:appinfo>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="GLAccountType" nillable="true" type="tns:GLAccountType" />
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Concierge.Parameters" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Concierge.Parameters" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+  <xs:complexType name="CloneExhibitShowRequest">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeRequest">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="DestinationShow" nillable="true" type="q1:MemberSuiteObject" />
+          <xs:element minOccurs="0" name="Options" nillable="true" type="tns:CloneExhibitShowOptions" />
+          <xs:element minOccurs="0" name="SourceExhibitShowID" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CloneExhibitShowRequest" nillable="true" type="tns:CloneExhibitShowRequest" />
+  <xs:complexType name="ConciergeRequest">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="ConciergeRequest" nillable="true" type="tns:ConciergeRequest" />
+  <xs:complexType name="CloneExhibitShowOptions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CloneBoothsAndFees" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CloneContactRestrictions" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CloneMerchandise" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CloneRegistrationWindows" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CloneSponsorshipsAndFees" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CloneExhibitShowOptions" nillable="true" type="tns:CloneExhibitShowOptions" />
 </xs:schema>

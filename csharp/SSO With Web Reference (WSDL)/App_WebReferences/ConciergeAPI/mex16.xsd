@@ -1,30 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Searching" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Searching" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
-  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" />
-  <xs:complexType name="SearchManifest">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="BaseObject" nillable="true" type="xs:string" />
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="BatchOperations" nillable="true" type="q1:ArrayOfBatchOperation" />
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="DefaultFindColumns" nillable="true" type="q2:ArrayOfSearchOutputColumn" />
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="DefaultQuickSearchColumns" nillable="true" type="q3:ArrayOfSearchOutputColumn" />
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="DefaultSelectedFields" nillable="true" type="q4:ArrayOfSearchOutputColumn" />
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="DefaultSortFieds" nillable="true" type="q5:ArrayOfSearchSortColumn" />
-      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="EmailBlastEligible" type="xs:boolean" />
-      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="Fields" nillable="true" type="q6:ArrayOfFieldMetadata" />
-      <xs:element minOccurs="0" name="Module" nillable="true" type="xs:string" />
-      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="OutputFormats" nillable="true" type="q7:ArrayOfPickListEntry" />
-      <xs:element minOccurs="0" name="SearchContext" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="SearchType" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="ViewCommand" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="SearchManifest" nillable="true" type="tns:SearchManifest" />
-  <xs:complexType name="ArrayOfSearchManifest">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="SearchManifest" nillable="true" type="tns:SearchManifest" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfSearchManifest" nillable="true" type="tns:ArrayOfSearchManifest" />
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System.Data" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="IsolationLevel">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unspecified">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">-1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Chaos">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ReadUncommitted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">256</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ReadCommitted">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4096</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="RepeatableRead">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">65536</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Serializable">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1048576</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Snapshot">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">16777216</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="IsolationLevel" nillable="true" type="tns:IsolationLevel" />
+  <xs:element name="DataTable" nillable="true">
+    <xs:complexType>
+      <xs:annotation>
+        <xs:appinfo>
+          <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+        </xs:appinfo>
+      </xs:annotation>
+      <xs:sequence>
+        <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+        <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

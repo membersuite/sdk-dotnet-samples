@@ -1,6 +1,5 @@
 ﻿<%@ Application Language="C#" %>
 <%@ Import Namespace="MemberSuite.SDK.Concierge" %>
-<%@ Import Namespace="MemberSuite.SDK.WCF" %>
 <script runat="server">
 
     void Application_Start(object sender, EventArgs e) 

@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://membersuite.com/schemas/" elementFormDefault="qualified" targetNamespace="http://membersuite.com/schemas/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
-  <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" name="dictionary" nillable="true" type="q1:SerializableDictionaryOfstringstring" />
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Console" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Console" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Resource" />
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests" />
+  <xs:complexType name="Tab">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" base="q1:CommandShortcut">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Commands" nillable="true" type="q1:ArrayOfCommandShortcut" />
+          <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Tab" nillable="true" type="tns:Tab" />
+  <xs:complexType name="ConsoleMetadata">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q2="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests" base="q2:MetadataBase">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="QuickSearches" nillable="true" type="q3:ArrayOfNameValueStringPair" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Resource" minOccurs="0" name="Resources" nillable="true" type="q4:ArrayOfStringResource" />
+          <xs:element minOccurs="0" name="Tabs" nillable="true" type="tns:ArrayOfTab" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConsoleMetadata" nillable="true" type="tns:ConsoleMetadata" />
+  <xs:complexType name="ArrayOfTab">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tab" nillable="true" type="tns:Tab" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTab" nillable="true" type="tns:ArrayOfTab" />
 </xs:schema>

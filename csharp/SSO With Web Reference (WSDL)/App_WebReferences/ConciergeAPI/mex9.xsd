@@ -1,90 +1,337 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command.Views" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command.Views" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" />
-  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests" />
-  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
-  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" />
-  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd12" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Reporting" />
-  <xs:complexType name="DataEntryViewMetadata">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests" base="q1:MetadataBase">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="HideLeftColumn" type="xs:boolean" />
-          <xs:element minOccurs="0" name="LeftColumnHeader" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="RightColumnHeader" nillable="true" type="xs:string" />
-          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" minOccurs="0" name="Sections" nillable="true" type="q2:ArrayOfViewMetadata.ControlSection" />
-          <xs:element minOccurs="0" name="Steps" nillable="true" type="tns:ArrayOfDataEntryViewMetadata.StepDef" />
-          <xs:element minOccurs="0" name="UsefulTips" nillable="true" type="tns:DataEntryViewMetadata.UsefulTipsDef" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="DataEntryViewMetadata" nillable="true" type="tns:DataEntryViewMetadata" />
-  <xs:complexType name="ArrayOfDataEntryViewMetadata.StepDef">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd14" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Resource" />
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" />
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command.Views" />
+  <xs:complexType name="ArrayOfViewMetadata.ControlSection">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="DataEntryViewMetadata.StepDef" nillable="true" type="tns:DataEntryViewMetadata.StepDef" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewMetadata.ControlSection" nillable="true" type="tns:ViewMetadata.ControlSection" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfDataEntryViewMetadata.StepDef" nillable="true" type="tns:ArrayOfDataEntryViewMetadata.StepDef" />
-  <xs:complexType name="DataEntryViewMetadata.StepDef">
+  <xs:element name="ArrayOfViewMetadata.ControlSection" nillable="true" type="tns:ArrayOfViewMetadata.ControlSection" />
+  <xs:complexType name="ViewMetadata.ControlSection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Collapsible" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="Commands" nillable="true" type="q1:ArrayOfCommandShortcut" />
+      <xs:element minOccurs="0" name="CopyFrom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisplayOrder" type="xs:int" />
+      <xs:element minOccurs="0" name="Icon" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LeftControls" nillable="true" type="tns:ArrayOfControlMetadata" />
+      <xs:element minOccurs="0" name="Module" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Reports" nillable="true" type="tns:ArrayOfViewMetadata.ReportLink" />
+      <xs:element minOccurs="0" name="RightControls" nillable="true" type="tns:ArrayOfControlMetadata" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SearchesToDisplay" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element minOccurs="0" name="SubSections" nillable="true" type="tns:ArrayOfViewMetadata.ControlSection" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewMetadata.ControlSection" nillable="true" type="tns:ViewMetadata.ControlSection" />
+  <xs:complexType name="ArrayOfControlMetadata">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ControlMetadata" nillable="true" type="tns:ControlMetadata" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfControlMetadata" nillable="true" type="tns:ArrayOfControlMetadata" />
+  <xs:complexType name="ControlMetadata">
     <xs:complexContent mixed="false">
-      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" base="q3:CommandShortcut">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" base="q3:FieldMetadataOverride">
         <xs:sequence>
-          <xs:element minOccurs="0" name="IsCurrent" type="xs:boolean" />
+          <xs:element minOccurs="0" name="AcceptableValuesDataSource" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AcceptableValuesDataSourceExpression" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AcceptableValuesDataTextField" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="AcceptableValuesDataValueField" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Columns" type="xs:int" />
+          <xs:element minOccurs="0" name="DataSource" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DataSourceExpression" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+          <xs:element minOccurs="0" name="EnabledString" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorMessage_RequiredField" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Properties" nillable="true" type="tns:ArrayOfControlMetadata.ControlProperty" />
+          <xs:element minOccurs="0" name="UseEntireRow" type="xs:boolean" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:element name="DataEntryViewMetadata.StepDef" nillable="true" type="tns:DataEntryViewMetadata.StepDef" />
-  <xs:complexType name="DataEntryViewMetadata.UsefulTipsDef">
+  <xs:element name="ControlMetadata" nillable="true" type="tns:ControlMetadata" />
+  <xs:complexType name="ArrayOfControlMetadata.ControlProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ControlMetadata.ControlProperty" nillable="true" type="tns:ControlMetadata.ControlProperty" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfControlMetadata.ControlProperty" nillable="true" type="tns:ArrayOfControlMetadata.ControlProperty" />
+  <xs:complexType name="ControlMetadata.ControlProperty">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Expression" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ControlMetadata.ControlProperty" nillable="true" type="tns:ControlMetadata.ControlProperty" />
+  <xs:complexType name="ArrayOfViewMetadata.ReportLink">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewMetadata.ReportLink" nillable="true" type="tns:ViewMetadata.ReportLink" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfViewMetadata.ReportLink" nillable="true" type="tns:ArrayOfViewMetadata.ReportLink" />
+  <xs:complexType name="ViewMetadata.ReportLink">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Customizable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExcelAvailable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PDFAvailable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Type" type="tns:ViewMetadata.ReportLinkType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewMetadata.ReportLink" nillable="true" type="tns:ViewMetadata.ReportLink" />
+  <xs:simpleType name="ViewMetadata.ReportLinkType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Report" />
+      <xs:enumeration value="BuiltInSearch" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ViewMetadata.ReportLinkType" nillable="true" type="tns:ViewMetadata.ReportLinkType" />
+  <xs:simpleType name="CommandDefinition.CommandDisplayType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Normal" />
+      <xs:enumeration value="PopupSmall" />
+      <xs:enumeration value="PopupLarge" />
+      <xs:enumeration value="PopupLargeExtraWide" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="CommandDefinition.CommandDisplayType" nillable="true" type="tns:CommandDefinition.CommandDisplayType" />
+  <xs:complexType name="CommandDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllowAnonymousUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowNullContext" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Class" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataModelBindings" nillable="true" type="tns:ArrayOfCommandDefinition.DataModelBinding" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisplayType" type="tns:CommandDefinition.CommandDisplayType" />
+      <xs:element minOccurs="0" name="ExpectedContextType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HelpTopic" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ObjectsToCreate" nillable="true" type="tns:ArrayOfCommandDefinition.ObjectToCreate" />
+      <xs:element minOccurs="0" name="ObjectsToPersistInCommandSession" nillable="true" type="tns:ArrayOfCommandDefinition.ObjectToPersist" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="QuickSearches" nillable="true" type="q4:ArrayOfNameValueStringPair" />
+      <xs:element minOccurs="0" name="Redirect" nillable="true" type="xs:string" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="RedirectTarget" type="q5:DisplayTarget" />
+      <xs:element minOccurs="0" name="RequiresCommandSession" type="xs:boolean" />
+      <xs:element minOccurs="0" name="RequiresPermission" nillable="true" type="xs:string" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Resource" minOccurs="0" name="Resources" nillable="true" type="q6:ArrayOfStringResource" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="Searches" nillable="true" type="q7:ArrayOfSearch" />
+      <xs:element minOccurs="0" name="TargetObject" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Views" nillable="true" type="tns:ArrayOfViewMetadata" />
+      <xs:element minOccurs="0" name="Workflow" nillable="true" type="tns:CommandDefinition.CommandWorkflow" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommandDefinition" nillable="true" type="tns:CommandDefinition" />
+  <xs:complexType name="ArrayOfCommandDefinition.DataModelBinding">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommandDefinition.DataModelBinding" nillable="true" type="tns:CommandDefinition.DataModelBinding" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommandDefinition.DataModelBinding" nillable="true" type="tns:ArrayOfCommandDefinition.DataModelBinding" />
+  <xs:complexType name="CommandDefinition.DataModelBinding">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Expression" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Property" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommandDefinition.DataModelBinding" nillable="true" type="tns:CommandDefinition.DataModelBinding" />
+  <xs:complexType name="ArrayOfCommandDefinition.ObjectToCreate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommandDefinition.ObjectToCreate" nillable="true" type="tns:CommandDefinition.ObjectToCreate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommandDefinition.ObjectToCreate" nillable="true" type="tns:ArrayOfCommandDefinition.ObjectToCreate" />
+  <xs:complexType name="CommandDefinition.ObjectToCreate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="NameInModel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommandDefinition.ObjectToCreate" nillable="true" type="tns:CommandDefinition.ObjectToCreate" />
+  <xs:complexType name="ArrayOfCommandDefinition.ObjectToPersist">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommandDefinition.ObjectToPersist" nillable="true" type="tns:CommandDefinition.ObjectToPersist" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommandDefinition.ObjectToPersist" nillable="true" type="tns:ArrayOfCommandDefinition.ObjectToPersist" />
+  <xs:complexType name="CommandDefinition.ObjectToPersist">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Encrypt" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NameInModel" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommandDefinition.ObjectToPersist" nillable="true" type="tns:CommandDefinition.ObjectToPersist" />
+  <xs:complexType name="ArrayOfViewMetadata">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewMetadata" nillable="true" type="tns:ViewMetadata" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfViewMetadata" nillable="true" type="tns:ArrayOfViewMetadata" />
+  <xs:complexType name="ViewMetadata">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AjaxTransitionMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BreadcrumbBar" nillable="true" type="tns:ViewMetadata.BreadcrumbBarStructure" />
+      <xs:element minOccurs="0" name="CopyFrom" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DataBindings" nillable="true" type="tns:ArrayOfControlMetadata" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Resource" minOccurs="0" name="Resources" nillable="true" type="q8:ArrayOfStringResource" />
+      <xs:element minOccurs="0" name="SpecificViewMetadata" nillable="true" type="tns:ViewMetadata.SpecificViewMetadataCollection" />
+      <xs:element minOccurs="0" name="Transitions" nillable="true" type="tns:ArrayOfViewMetadata.ViewTransition" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewMetadata" nillable="true" type="tns:ViewMetadata" />
+  <xs:complexType name="ViewMetadata.BreadcrumbBarStructure">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Color" nillable="true" type="xs:string" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="Commands" nillable="true" type="q9:ArrayOfCommandShortcut" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewMetadata.BreadcrumbBarStructure" nillable="true" type="tns:ViewMetadata.BreadcrumbBarStructure" />
+  <xs:complexType name="ViewMetadata.SpecificViewMetadataCollection">
+    <xs:sequence>
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command.Views" minOccurs="0" name="Data360ViewMetadata" nillable="true" type="q10:Data360ViewMetadata" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command.Views" minOccurs="0" name="DataEntryViewMetadata" nillable="true" type="q11:DataEntryViewMetadata" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command.Views" minOccurs="0" name="PageLayoutEditorMetadata" nillable="true" type="q12:PageLayoutEditorMetadata" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command.Views" minOccurs="0" name="SearchViewMetadata" nillable="true" type="q13:SearchViewMetadata" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command.Views" minOccurs="0" name="ShowAnnouncementViewMetadata" nillable="true" type="q14:ShowAnnouncementViewMetadata" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command.Views" minOccurs="0" name="TabularDataViewMetadata" nillable="true" type="q15:TabularDataViewMetadata" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ViewMetadata.SpecificViewMetadataCollection" nillable="true" type="tns:ViewMetadata.SpecificViewMetadataCollection" />
+  <xs:complexType name="ArrayOfViewMetadata.ViewTransition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ViewMetadata.ViewTransition" nillable="true" type="tns:ViewMetadata.ViewTransition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfViewMetadata.ViewTransition" nillable="true" type="tns:ArrayOfViewMetadata.ViewTransition" />
+  <xs:complexType name="ViewMetadata.ViewTransition">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q16="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" base="q16:CommandShortcut">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IsDefault" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ShowIf" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SuppressValidation" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ViewMetadata.ViewTransition" nillable="true" type="tns:ViewMetadata.ViewTransition" />
+  <xs:complexType name="CommandDefinition.CommandWorkflow">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="States" nillable="true" type="tns:ArrayOfCommandDefinition.CommandWorkflowState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommandDefinition.CommandWorkflow" nillable="true" type="tns:CommandDefinition.CommandWorkflow" />
+  <xs:complexType name="ArrayOfCommandDefinition.CommandWorkflowState">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommandDefinition.CommandWorkflowState" nillable="true" type="tns:CommandDefinition.CommandWorkflowState" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommandDefinition.CommandWorkflowState" nillable="true" type="tns:ArrayOfCommandDefinition.CommandWorkflowState" />
+  <xs:complexType name="CommandDefinition.CommandWorkflowState">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Transitions" nillable="true" type="tns:ArrayOfCommandDefinition.CommandWorkflowStateTransitition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommandDefinition.CommandWorkflowState" nillable="true" type="tns:CommandDefinition.CommandWorkflowState" />
+  <xs:complexType name="ArrayOfCommandDefinition.CommandWorkflowStateTransitition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommandDefinition.CommandWorkflowStateTransitition" nillable="true" type="tns:CommandDefinition.CommandWorkflowStateTransitition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommandDefinition.CommandWorkflowStateTransitition" nillable="true" type="tns:ArrayOfCommandDefinition.CommandWorkflowStateTransitition" />
+  <xs:complexType name="CommandDefinition.CommandWorkflowStateTransitition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToCommand" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToCommandArg1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToCommandArg2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToCommandArg3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToCommandArg4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToCommandContext" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ToState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TransferCommandSession" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommandDefinition.CommandWorkflowStateTransitition" nillable="true" type="tns:CommandDefinition.CommandWorkflowStateTransitition" />
+  <xs:complexType name="ArrayOfPartialCommandDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PartialCommandDefinition" nillable="true" type="tns:PartialCommandDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPartialCommandDefinition" nillable="true" type="tns:ArrayOfPartialCommandDefinition" />
+  <xs:complexType name="PartialCommandDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisplayType" type="tns:CommandDefinition.CommandDisplayType" />
+      <xs:element minOccurs="0" name="FirstView" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PartialCommandDefinition" nillable="true" type="tns:PartialCommandDefinition" />
+  <xs:complexType name="ArrayOfPartialObjectDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PartialObjectDefinition" nillable="true" type="tns:PartialObjectDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPartialObjectDefinition" nillable="true" type="tns:ArrayOfPartialObjectDefinition" />
+  <xs:complexType name="PartialObjectDefinition">
     <xs:sequence>
       <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Show" type="xs:boolean" />
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="Tips" nillable="true" type="q4:ArrayOfCommandShortcut" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DataEntryViewMetadata.UsefulTipsDef" nillable="true" type="tns:DataEntryViewMetadata.UsefulTipsDef" />
-  <xs:complexType name="Data360ViewMetadata">
-    <xs:sequence>
-      <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AdditionalFields" nillable="true" type="q5:ArrayOfstring" />
-      <xs:element minOccurs="0" name="DefaultOneClick" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Module" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="Searches" nillable="true" type="q6:ArrayOfSearch" />
-      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" minOccurs="0" name="Sections" nillable="true" type="q7:ArrayOfViewMetadata.ControlSection" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Data360ViewMetadata" nillable="true" type="tns:Data360ViewMetadata" />
-  <xs:complexType name="DashboardMetadata">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q8="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests" base="q8:MetadataBase">
-        <xs:sequence>
-          <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Reporting" minOccurs="0" name="LeftWidgets" nillable="true" type="q9:ArrayOfWidgetDefinition" />
-          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Reporting" minOccurs="0" name="RightWidgets" nillable="true" type="q10:ArrayOfWidgetDefinition" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="DashboardMetadata" nillable="true" type="tns:DashboardMetadata" />
-  <xs:complexType name="PageLayoutEditorMetadata">
+  <xs:element name="PartialObjectDefinition" nillable="true" type="tns:PartialObjectDefinition" />
+  <xs:complexType name="ArrayOfPartialSearchDefinition">
     <xs:sequence>
-      <xs:element minOccurs="0" name="AllowFieldRelabeling" type="xs:boolean" />
-      <xs:element minOccurs="0" name="AllowSectionCreationAndRemoval" type="xs:boolean" />
-      <xs:element minOccurs="0" name="ShowAddAdditionalOutputFieldsLink" type="xs:boolean" />
-      <xs:element minOccurs="0" name="ShowAddSeperatorLink" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PartialSearchDefinition" nillable="true" type="tns:PartialSearchDefinition" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="PageLayoutEditorMetadata" nillable="true" type="tns:PageLayoutEditorMetadata" />
-  <xs:complexType name="TabularDataViewMetadata">
+  <xs:element name="ArrayOfPartialSearchDefinition" nillable="true" type="tns:ArrayOfPartialSearchDefinition" />
+  <xs:complexType name="PartialSearchDefinition">
     <xs:sequence>
-      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" minOccurs="0" name="CommandSections" nillable="true" type="q11:ArrayOfViewMetadata.ControlSection" />
-      <xs:element minOccurs="0" name="DisablePaging" type="xs:boolean" />
-      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="Fields" nillable="true" type="q12:ArrayOfFieldMetadata" />
-      <xs:element minOccurs="0" name="IDColumn" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="RowLevelCommandWidth" type="xs:int" />
-      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="RowLevelCommands" nillable="true" type="q13:ArrayOfCommandShortcut" />
-      <xs:element minOccurs="0" name="ShowCheckboxes" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ExpectedContextType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Module" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="TabularDataViewMetadata" nillable="true" type="tns:TabularDataViewMetadata" />
+  <xs:element name="PartialSearchDefinition" nillable="true" type="tns:PartialSearchDefinition" />
+  <xs:complexType name="ReportDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IsRaw" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ReportDefinitionXml" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ReportDefinition" nillable="true" type="tns:ReportDefinition" />
+  <xs:complexType name="ArrayOfPartialReportDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PartialReportDefinition" nillable="true" type="tns:PartialReportDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPartialReportDefinition" nillable="true" type="tns:ArrayOfPartialReportDefinition" />
+  <xs:complexType name="PartialReportDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisplayName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExpectedContextType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PartialReportDefinition" nillable="true" type="tns:PartialReportDefinition" />
 </xs:schema>

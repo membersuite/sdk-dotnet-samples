@@ -13,6 +13,7 @@ public partial class _360ScreenIntegrationLink : IntegrationLinkPage
         if (!IsPostBack)
         {
             string contextID = Request["contextID"];
+            if (string.IsNullOrEmpty(contextID)) contextID = "2537d8c3-0006-ce10-841f-0b371e6de173";
 
             lRecordID.Text = contextID;
 

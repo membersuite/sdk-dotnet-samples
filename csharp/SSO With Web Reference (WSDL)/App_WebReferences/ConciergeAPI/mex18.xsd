@@ -1,42 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.DuplicateDetection" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.DuplicateDetection" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://localhost:81/mex?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests" />
-  <xs:simpleType name="DuplicateDetectionMatchMode">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="ExactMatch" />
-      <xs:enumeration value="Fuzzy" />
-      <xs:enumeration value="CommonFirstNames" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="DuplicateDetectionMatchMode" nillable="true" type="tns:DuplicateDetectionMatchMode" />
-  <xs:complexType name="ArrayOfDuplicateDetectionRule">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Jobs" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Jobs" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" />
+  <xs:complexType name="SubscriptionFulfillmentJobManifest">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="DuplicateDetectionRule" nillable="true" type="tns:DuplicateDetectionRule" />
+      <xs:element minOccurs="0" name="BatchName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IssueID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="MembershipSearchToUseForFulfillment" nillable="true" type="q1:Search" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="SubscriptionSearchToUseForFulfillment" nillable="true" type="q2:Search" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfDuplicateDetectionRule" nillable="true" type="tns:ArrayOfDuplicateDetectionRule" />
-  <xs:complexType name="DuplicateDetectionRule">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests" base="q1:MetadataBase">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="Fields" nillable="true" type="tns:ArrayOfDetectionField" />
-          <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="DuplicateDetectionRule" nillable="true" type="tns:DuplicateDetectionRule" />
-  <xs:complexType name="ArrayOfDetectionField">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="DetectionField" nillable="true" type="tns:DetectionField" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfDetectionField" nillable="true" type="tns:ArrayOfDetectionField" />
-  <xs:complexType name="DetectionField">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="MatchType" type="tns:DuplicateDetectionMatchMode" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="DetectionField" nillable="true" type="tns:DetectionField" />
+  <xs:element name="SubscriptionFulfillmentJobManifest" nillable="true" type="tns:SubscriptionFulfillmentJobManifest" />
 </xs:schema>

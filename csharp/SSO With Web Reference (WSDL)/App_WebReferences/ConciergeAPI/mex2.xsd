@@ -1,46 +1,1410 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types.KPIs" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types.KPIs" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:simpleType name="KPIType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Integer" />
-      <xs:enumeration value="Double" />
-      <xs:enumeration value="Percentage" />
-      <xs:enumeration value="Currency" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="KPIType" nillable="true" type="tns:KPIType" />
-  <xs:simpleType name="KPIPeriod">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="Current" />
-      <xs:enumeration value="Today" />
-      <xs:enumeration value="Week" />
-      <xs:enumeration value="Month" />
-      <xs:enumeration value="Quarter" />
-      <xs:enumeration value="FiscalQuarter" />
-      <xs:enumeration value="Year" />
-      <xs:enumeration value="FiscalYear" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:element name="KPIPeriod" nillable="true" type="tns:KPIPeriod" />
-  <xs:complexType name="ArrayOfKPI">
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Concierge" />
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" />
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK" />
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd21" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Searching" />
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd13" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Console" />
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command.Views" />
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" />
+  <xs:import schemaLocation="https://soap.membersuite.com/mex?xsd=xsd17" namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.DuplicateDetection" />
+  <xs:complexType name="ConciergeResultOfstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResultValue" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfstring" nillable="true" type="tns:ConciergeResultOfstring" />
+  <xs:complexType name="ConciergeResult">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="KPI" nillable="true" type="tns:KPI" />
+      <xs:element minOccurs="0" name="Cacheable" type="xs:boolean" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Concierge" minOccurs="0" name="Errors" nillable="true" type="q1:ArrayOfConciergeError" />
+      <xs:element minOccurs="0" name="NotModified" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Success" type="xs:boolean" />
+      <xs:element minOccurs="0" name="WorkflowExecutionID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WorkflowRunID" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfKPI" nillable="true" type="tns:ArrayOfKPI" />
-  <xs:complexType name="KPI">
+  <xs:element name="ConciergeResult" nillable="true" type="tns:ConciergeResult" />
+  <xs:complexType name="ConciergeResultOfArrayOfNameValuePair">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfNameValuePair" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q2:ArrayOfNameValuePair" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfNameValuePair" nillable="true" type="tns:ConciergeResultOfArrayOfNameValuePair" />
+  <xs:complexType name="ConciergeResultOfArrayOfNameValueStringPair">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfNameValueStringPair" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q3:ArrayOfNameValueStringPair" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfNameValueStringPair" nillable="true" type="tns:ConciergeResultOfArrayOfNameValueStringPair" />
+  <xs:complexType name="ColumnMetadataDictionary">
+    <xs:annotation>
+      <xs:appinfo>
+        <IsDictionary xmlns="http://schemas.microsoft.com/2003/10/Serialization/">true</IsDictionary>
+      </xs:appinfo>
+    </xs:annotation>
     <xs:sequence>
-      <xs:element minOccurs="0" name="CurrentPeriod" type="tns:KPIPeriod" />
-      <xs:element minOccurs="0" name="CurrentPeriodIndex" type="xs:int" />
-      <xs:element minOccurs="0" name="CurrentPeriodValue" type="xs:double" />
-      <xs:element minOccurs="0" name="Flag" type="xs:boolean" />
-      <xs:element minOccurs="0" name="Label" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueOfstringFieldMetadata">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Key" nillable="true" type="xs:string" />
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" name="Value" nillable="true" type="q4:FieldMetadata" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ColumnMetadataDictionary" nillable="true" type="tns:ColumnMetadataDictionary" />
+  <xs:complexType name="ConciergeResultOfMemberSuiteObject">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="MemberSuiteObject" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q5:MemberSuiteObject" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfMemberSuiteObject" nillable="true" type="tns:ConciergeResultOfMemberSuiteObject" />
+  <xs:complexType name="ConciergeResultOfArrayOfDatabaseServer">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfDatabaseServer" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q6:ArrayOfDatabaseServer" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfDatabaseServer" nillable="true" type="tns:ConciergeResultOfArrayOfDatabaseServer" />
+  <xs:complexType name="ConciergeResultOfMemberSuiteVersion">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="MemberSuiteVersion" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q7:MemberSuiteVersion" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfMemberSuiteVersion" nillable="true" type="tns:ConciergeResultOfMemberSuiteVersion" />
+  <xs:complexType name="ConciergeResultOfArrayOfMemberSuiteObject">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfMemberSuiteObject" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q8:ArrayOfMemberSuiteObject" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfMemberSuiteObject" nillable="true" type="tns:ConciergeResultOfArrayOfMemberSuiteObject" />
+  <xs:complexType name="ConciergeResultOfArrayOfstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfstring" Namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ResultValue" nillable="true" type="q9:ArrayOfstring" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfstring" nillable="true" type="tns:ConciergeResultOfArrayOfstring" />
+  <xs:complexType name="ConciergeResultOfPortalPaymentMethods">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="PortalPaymentMethods" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q10:PortalPaymentMethods" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfPortalPaymentMethods" nillable="true" type="tns:ConciergeResultOfPortalPaymentMethods" />
+  <xs:complexType name="ConciergeResultOfLongRunningTaskInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="LongRunningTaskInfo" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q11:LongRunningTaskInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfLongRunningTaskInfo" nillable="true" type="tns:ConciergeResultOfLongRunningTaskInfo" />
+  <xs:complexType name="ConciergeResultOfArrayOfBatchPostingResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfBatchPostingResult" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q12:ArrayOfBatchPostingResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfBatchPostingResult" nillable="true" type="tns:ConciergeResultOfArrayOfBatchPostingResult" />
+  <xs:complexType name="ConciergeResultOfBatchReadinessReport">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="BatchReadinessReport" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q13:BatchReadinessReport" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfBatchReadinessReport" nillable="true" type="tns:ConciergeResultOfBatchReadinessReport" />
+  <xs:complexType name="ConciergeResultOfPaymentProcessorResponse">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="PaymentProcessorResponse" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q14:PaymentProcessorResponse" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfPaymentProcessorResponse" nillable="true" type="tns:ConciergeResultOfPaymentProcessorResponse" />
+  <xs:complexType name="ConciergeResultOfArrayOfProductInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfProductInfo" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q15:ArrayOfProductInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfProductInfo" nillable="true" type="tns:ConciergeResultOfArrayOfProductInfo" />
+  <xs:complexType name="ConciergeResultOfNullableOfdateTime">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="NullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="dateTime" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResultValue" nillable="true" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfNullableOfdateTime" nillable="true" type="tns:ConciergeResultOfNullableOfdateTime" />
+  <xs:complexType name="ConciergeResultOfArrayOfControlMetadata">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfControlMetadata" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" minOccurs="0" name="ResultValue" nillable="true" type="q16:ArrayOfControlMetadata" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfControlMetadata" nillable="true" type="tns:ConciergeResultOfArrayOfControlMetadata" />
+  <xs:complexType name="ConciergeResultOfPreProcessedOrderPacket">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="PreProcessedOrderPacket" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q17:PreProcessedOrderPacket" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfPreProcessedOrderPacket" nillable="true" type="tns:ConciergeResultOfPreProcessedOrderPacket" />
+  <xs:complexType name="ConciergeResultOfdecimal">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="decimal" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResultValue" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfdecimal" nillable="true" type="tns:ConciergeResultOfdecimal" />
+  <xs:complexType name="ConciergeResultOfShippingCarrierServicesInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ShippingCarrierServicesInfo" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q18:ShippingCarrierServicesInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfShippingCarrierServicesInfo" nillable="true" type="tns:ConciergeResultOfShippingCarrierServicesInfo" />
+  <xs:complexType name="ConciergeResultOfArrayOfMembershipProductInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfMembershipProductInfo" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q19:ArrayOfMembershipProductInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfMembershipProductInfo" nillable="true" type="tns:ConciergeResultOfArrayOfMembershipProductInfo" />
+  <xs:complexType name="ConciergeResultOfArrayOfEventRegistrationProductInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfEventRegistrationProductInfo" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q20:ArrayOfEventRegistrationProductInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfEventRegistrationProductInfo" nillable="true" type="tns:ConciergeResultOfArrayOfEventRegistrationProductInfo" />
+  <xs:complexType name="ConciergeResultOfEventManifest">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="EventManifest" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q21:EventManifest" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfEventManifest" nillable="true" type="tns:ConciergeResultOfEventManifest" />
+  <xs:complexType name="ConciergeResultOfExhibitorRegistrationPermissionPacket">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ExhibitorRegistrationPermissionPacket" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q22:ExhibitorRegistrationPermissionPacket" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfExhibitorRegistrationPermissionPacket" nillable="true" type="tns:ConciergeResultOfExhibitorRegistrationPermissionPacket" />
+  <xs:complexType name="ConciergeResultOfArrayOfExhibitBoothInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfExhibitBoothInfo" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/MemberSuite.SDK" minOccurs="0" name="ResultValue" nillable="true" type="q23:ArrayOfExhibitBoothInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfExhibitBoothInfo" nillable="true" type="tns:ConciergeResultOfArrayOfExhibitBoothInfo" />
+  <xs:complexType name="ConciergeResultOfArrayOfVolunteerMatch">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfVolunteerMatch" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q24:ArrayOfVolunteerMatch" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfVolunteerMatch" nillable="true" type="tns:ConciergeResultOfArrayOfVolunteerMatch" />
+  <xs:complexType name="ConciergeResultOfFolderInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="FolderInfo" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q25:FolderInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfFolderInfo" nillable="true" type="tns:ConciergeResultOfFolderInfo" />
+  <xs:complexType name="ConciergeResultOfSearchResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="SearchResult" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResultValue" nillable="true" type="tns:SearchResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfSearchResult" nillable="true" type="tns:ConciergeResultOfSearchResult" />
+  <xs:complexType name="SearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ColumnMetadata" nillable="true" type="tns:ColumnMetadataDictionary" />
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Searching" minOccurs="0" name="SearchManifest" nillable="true" type="q26:SearchManifest" />
+      <xs:element minOccurs="0" name="Table" nillable="true">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:appinfo>
+              <ActualType Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <xs:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="TotalRowCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchResult" nillable="true" type="tns:SearchResult" />
+  <xs:complexType name="ConciergeResultOfPortalFormsManifest">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="PortalFormsManifest" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q27:PortalFormsManifest" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfPortalFormsManifest" nillable="true" type="tns:ConciergeResultOfPortalFormsManifest" />
+  <xs:complexType name="ConciergeResultOfPortalFormInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="PortalFormInfo" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q28:PortalFormInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfPortalFormInfo" nillable="true" type="tns:ConciergeResultOfPortalFormInfo" />
+  <xs:complexType name="ConciergeResultOfEntitlementReport">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="EntitlementReport" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q29:EntitlementReport" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfEntitlementReport" nillable="true" type="tns:ConciergeResultOfEntitlementReport" />
+  <xs:complexType name="ConciergeResultOfArrayOfEntitlementReport">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfEntitlementReport" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q30:ArrayOfEntitlementReport" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfEntitlementReport" nillable="true" type="tns:ConciergeResultOfArrayOfEntitlementReport" />
+  <xs:complexType name="ConciergeResultOfCompetitionEntryInformation">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="CompetitionEntryInformation" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q31:CompetitionEntryInformation" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfCompetitionEntryInformation" nillable="true" type="tns:ConciergeResultOfCompetitionEntryInformation" />
+  <xs:complexType name="ConciergeResultOfPriorityApiSettings">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="PriorityApiSettings" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q32:PriorityApiSettings" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfPriorityApiSettings" nillable="true" type="tns:ConciergeResultOfPriorityApiSettings" />
+  <xs:complexType name="ConciergeResultOfPortalInformation">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="PortalInformation" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q33:PortalInformation" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfPortalInformation" nillable="true" type="tns:ConciergeResultOfPortalInformation" />
+  <xs:complexType name="ConciergeResultOfSecurityLockAccessLevel">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="SecurityLockAccessLevel" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" type="q34:SecurityLockAccessLevel" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfSecurityLockAccessLevel" nillable="true" type="tns:ConciergeResultOfSecurityLockAccessLevel" />
+  <xs:complexType name="ConciergeResultOfLoginResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="LoginResult" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResultValue" nillable="true" type="tns:LoginResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfLoginResult" nillable="true" type="tns:ConciergeResultOfLoginResult" />
+  <xs:complexType name="LoginResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccessibleEntities" nillable="true" type="tns:ArrayOfLoginResult.AccessibleEntity" />
+      <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="Association" nillable="true" type="q35:MemberSuiteObject" />
+      <xs:element minOccurs="0" name="AutoLoginHash" nillable="true" type="xs:string" />
+      <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Console" minOccurs="0" name="ConsoleMetadata" nillable="true" type="q36:ConsoleMetadata" />
+      <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="Customer" nillable="true" type="q37:MemberSuiteObject" />
+      <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="KeyChain" nillable="true" type="q38:KeyChain" />
+      <xs:element minOccurs="0" name="Locale" nillable="true" type="xs:string" />
+      <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="MemberSuiteVersion" nillable="true" type="q39:MemberSuiteVersion" />
+      <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="PortalEntity" nillable="true" type="q40:MemberSuiteObject" />
+      <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="PortalUser" nillable="true" type="q41:MemberSuiteObject" />
+      <xs:element minOccurs="0" name="SessionID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="User" nillable="true" type="q42:MemberSuiteObject" />
+      <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="UserPreferences" nillable="true" type="q43:msUserPreferencesContainer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LoginResult" nillable="true" type="tns:LoginResult" />
+  <xs:complexType name="ArrayOfLoginResult.AccessibleEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LoginResult.AccessibleEntity" nillable="true" type="tns:LoginResult.AccessibleEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLoginResult.AccessibleEntity" nillable="true" type="tns:ArrayOfLoginResult.AccessibleEntity" />
+  <xs:complexType name="LoginResult.AccessibleEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PreviousPeriod" nillable="true" type="tns:KPIPeriod" />
-      <xs:element minOccurs="0" name="PreviousPeriodIndex" type="xs:int" />
-      <xs:element minOccurs="0" name="PreviousPeriodValue" type="xs:double" />
-      <xs:element minOccurs="0" name="Type" type="tns:KPIType" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="KPI" nillable="true" type="tns:KPI" />
+  <xs:element name="LoginResult.AccessibleEntity" nillable="true" type="tns:LoginResult.AccessibleEntity" />
+  <xs:complexType name="ConciergeResultOfmsPortalUser">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="msPortalUser" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q44:msPortalUser" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfmsPortalUser" nillable="true" type="tns:ConciergeResultOfmsPortalUser" />
+  <xs:complexType name="ConciergeResultOfbase64Binary">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="base64Binary" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResultValue" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfbase64Binary" nillable="true" type="tns:ConciergeResultOfbase64Binary" />
+  <xs:complexType name="ConciergeResultOfArrayOfCommandShortcut">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfCommandShortcut" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q45:ArrayOfCommandShortcut" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfCommandShortcut" nillable="true" type="tns:ConciergeResultOfArrayOfCommandShortcut" />
+  <xs:complexType name="ConciergeResultOfArrayOfLoginResult.AccessibleEntity">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfLoginResult.AccessibleEntity" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResultValue" nillable="true" type="tns:ArrayOfLoginResult.AccessibleEntity" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfLoginResult.AccessibleEntity" nillable="true" type="tns:ConciergeResultOfArrayOfLoginResult.AccessibleEntity" />
+  <xs:complexType name="ConciergeResultOfCommandDefinition">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="CommandDefinition" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" minOccurs="0" name="ResultValue" nillable="true" type="q46:CommandDefinition" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfCommandDefinition" nillable="true" type="tns:ConciergeResultOfCommandDefinition" />
+  <xs:complexType name="ConciergeResultOfArrayOfPartialCommandDefinition">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfPartialCommandDefinition" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" minOccurs="0" name="ResultValue" nillable="true" type="q47:ArrayOfPartialCommandDefinition" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfPartialCommandDefinition" nillable="true" type="tns:ConciergeResultOfArrayOfPartialCommandDefinition" />
+  <xs:complexType name="ConciergeResultOfConsoleMetadata">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ConsoleMetadata" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Console" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Console" minOccurs="0" name="ResultValue" nillable="true" type="q48:ConsoleMetadata" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfConsoleMetadata" nillable="true" type="tns:ConciergeResultOfConsoleMetadata" />
+  <xs:complexType name="ConciergeResultOfClassMetadata">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ClassMetadata" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q49:ClassMetadata" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfClassMetadata" nillable="true" type="tns:ConciergeResultOfClassMetadata" />
+  <xs:complexType name="ConciergeResultOfDataEntryViewMetadata">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="DataEntryViewMetadata" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command.Views" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command.Views" minOccurs="0" name="ResultValue" nillable="true" type="q50:DataEntryViewMetadata" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfDataEntryViewMetadata" nillable="true" type="tns:ConciergeResultOfDataEntryViewMetadata" />
+  <xs:complexType name="ConciergeResultOfData360ViewMetadata">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Data360ViewMetadata" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command.Views" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command.Views" minOccurs="0" name="ResultValue" nillable="true" type="q51:Data360ViewMetadata" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfData360ViewMetadata" nillable="true" type="tns:ConciergeResultOfData360ViewMetadata" />
+  <xs:complexType name="ConciergeResultOfArrayOfPartialObjectDefinition">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfPartialObjectDefinition" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" minOccurs="0" name="ResultValue" nillable="true" type="q52:ArrayOfPartialObjectDefinition" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfPartialObjectDefinition" nillable="true" type="tns:ConciergeResultOfArrayOfPartialObjectDefinition" />
+  <xs:complexType name="ConciergeResultOfData360Packet">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Data360Packet" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResultValue" nillable="true" type="tns:Data360Packet" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfData360Packet" nillable="true" type="tns:ConciergeResultOfData360Packet" />
+  <xs:complexType name="Data360Packet">
+    <xs:sequence>
+      <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ApplicableCustomObjects" nillable="true" type="q53:ArrayOfMemberSuiteObject" />
+      <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ApplicableRelationshipTypes" nillable="true" type="q54:ArrayOfMemberSuiteObject" />
+      <xs:element minOccurs="0" name="CanEmail" type="xs:boolean" />
+      <xs:element minOccurs="0" name="HasMailMerge" type="xs:boolean" />
+      <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="IntegrationLinks" nillable="true" type="q55:ArrayOfMemberSuiteObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Data360Packet" nillable="true" type="tns:Data360Packet" />
+  <xs:complexType name="ConciergeResultOfObjectSearchResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ObjectSearchResult" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResultValue" nillable="true" type="tns:ObjectSearchResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfObjectSearchResult" nillable="true" type="tns:ConciergeResultOfObjectSearchResult" />
+  <xs:complexType name="ObjectSearchResult">
+    <xs:sequence>
+      <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="Objects" nillable="true" type="q56:ArrayOfMemberSuiteObject" />
+      <xs:element minOccurs="0" name="TotalRowCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObjectSearchResult" nillable="true" type="tns:ObjectSearchResult" />
+  <xs:complexType name="ConciergeResultOfArrayOfAutoNumberSeedInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfAutoNumberSeedInfo" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResultValue" nillable="true" type="tns:ArrayOfAutoNumberSeedInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfAutoNumberSeedInfo" nillable="true" type="tns:ConciergeResultOfArrayOfAutoNumberSeedInfo" />
+  <xs:complexType name="ArrayOfAutoNumberSeedInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AutoNumberSeedInfo" nillable="true" type="tns:AutoNumberSeedInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAutoNumberSeedInfo" nillable="true" type="tns:ArrayOfAutoNumberSeedInfo" />
+  <xs:complexType name="AutoNumberSeedInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HighestValueInDatabase" nillable="true" type="xs:long" />
+      <xs:element minOccurs="0" name="NextValue" type="xs:long" />
+      <xs:element minOccurs="0" name="ObjectName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AutoNumberSeedInfo" nillable="true" type="tns:AutoNumberSeedInfo" />
+  <xs:complexType name="ConciergeResultOfAutoNumberSeedInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="AutoNumberSeedInfo" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResultValue" nillable="true" type="tns:AutoNumberSeedInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfAutoNumberSeedInfo" nillable="true" type="tns:ConciergeResultOfAutoNumberSeedInfo" />
+  <xs:complexType name="ConciergeResultOfSearchManifest">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="SearchManifest" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Searching" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Searching" minOccurs="0" name="ResultValue" nillable="true" type="q57:SearchManifest" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfSearchManifest" nillable="true" type="tns:ConciergeResultOfSearchManifest" />
+  <xs:complexType name="ConciergeResultOfArrayOfFieldMetadata">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfFieldMetadata" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q58:ArrayOfFieldMetadata" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfFieldMetadata" nillable="true" type="tns:ConciergeResultOfArrayOfFieldMetadata" />
+  <xs:complexType name="ConciergeResultOfMSQLResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="MSQLResult" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResultValue" nillable="true" type="tns:MSQLResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfMSQLResult" nillable="true" type="tns:ConciergeResultOfMSQLResult" />
+  <xs:complexType name="MSQLResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ObjectSearchResult" nillable="true" type="tns:ObjectSearchResult" />
+      <xs:element minOccurs="0" name="SearchResult" nillable="true" type="tns:SearchResult" />
+      <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="SingleObject" nillable="true" type="q59:MemberSuiteObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MSQLResult" nillable="true" type="tns:MSQLResult" />
+  <xs:complexType name="ConciergeResultOfSearch">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Search" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="ResultValue" nillable="true" type="q60:Search" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfSearch" nillable="true" type="tns:ConciergeResultOfSearch" />
+  <xs:complexType name="ConciergeResultOfArrayOfSearchResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfSearchResult" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResultValue" nillable="true" type="tns:ArrayOfSearchResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfSearchResult" nillable="true" type="tns:ConciergeResultOfArrayOfSearchResult" />
+  <xs:complexType name="ArrayOfSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SearchResult" nillable="true" type="tns:SearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSearchResult" nillable="true" type="tns:ArrayOfSearchResult" />
+  <xs:complexType name="ConciergeResultOfArrayOfSearchManifest">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfSearchManifest" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Searching" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Searching" minOccurs="0" name="ResultValue" nillable="true" type="q61:ArrayOfSearchManifest" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfSearchManifest" nillable="true" type="tns:ConciergeResultOfArrayOfSearchManifest" />
+  <xs:complexType name="ConciergeResultOfSearchWithFileOutputResult">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="SearchWithFileOutputResult" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResultValue" nillable="true" type="tns:SearchWithFileOutputResult" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfSearchWithFileOutputResult" nillable="true" type="tns:ConciergeResultOfSearchWithFileOutputResult" />
+  <xs:complexType name="SearchWithFileOutputResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Output" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="OutputFileName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TotalRowCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchWithFileOutputResult" nillable="true" type="tns:SearchWithFileOutputResult" />
+  <xs:complexType name="ConciergeResultOfArrayOfPartialSearchDefinition">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfPartialSearchDefinition" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" minOccurs="0" name="ResultValue" nillable="true" type="q62:ArrayOfPartialSearchDefinition" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfPartialSearchDefinition" nillable="true" type="tns:ConciergeResultOfArrayOfPartialSearchDefinition" />
+  <xs:complexType name="ConciergeResultOfArrayOfFlattenedSearchCriterion">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfFlattenedSearchCriterion" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Searching" minOccurs="0" name="ResultValue" nillable="true" type="q63:ArrayOfFlattenedSearchCriterion" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfFlattenedSearchCriterion" nillable="true" type="tns:ConciergeResultOfArrayOfFlattenedSearchCriterion" />
+  <xs:complexType name="ConciergeResultOfArrayOfZipCodeRadius">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfZipCodeRadius" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q64:ArrayOfZipCodeRadius" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfZipCodeRadius" nillable="true" type="tns:ConciergeResultOfArrayOfZipCodeRadius" />
+  <xs:complexType name="ConciergeResultOfArrayOfRelevantAnnouncement">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfRelevantAnnouncement" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q65:ArrayOfRelevantAnnouncement" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfRelevantAnnouncement" nillable="true" type="tns:ConciergeResultOfArrayOfRelevantAnnouncement" />
+  <xs:complexType name="ConciergeResultOfEmailTemplate">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="EmailTemplate" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q66:EmailTemplate" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfEmailTemplate" nillable="true" type="tns:ConciergeResultOfEmailTemplate" />
+  <xs:complexType name="ConciergeResultOfArrayOfEmailTemplate">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfEmailTemplate" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q67:ArrayOfEmailTemplate" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfEmailTemplate" nillable="true" type="tns:ConciergeResultOfArrayOfEmailTemplate" />
+  <xs:complexType name="AddressValidationResult">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResultOfAddress">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AddressValidationErrorMessage" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="AddressValidationResult" nillable="true" type="tns:AddressValidationResult" />
+  <xs:complexType name="ConciergeResultOfAddress">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="Address" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q68:Address" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfAddress" nillable="true" type="tns:ConciergeResultOfAddress" />
+  <xs:complexType name="ConciergeResultOfArrayOfDuplicateDetectionRule">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfDuplicateDetectionRule" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.DuplicateDetection" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.DuplicateDetection" minOccurs="0" name="ResultValue" nillable="true" type="q69:ArrayOfDuplicateDetectionRule" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfDuplicateDetectionRule" nillable="true" type="tns:ConciergeResultOfArrayOfDuplicateDetectionRule" />
+  <xs:complexType name="ConciergeResultOfBulkAddressValidationReport">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="BulkAddressValidationReport" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResultValue" nillable="true" type="tns:BulkAddressValidationReport" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfBulkAddressValidationReport" nillable="true" type="tns:ConciergeResultOfBulkAddressValidationReport" />
+  <xs:complexType name="BulkAddressValidationReport">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorCount" type="xs:int" />
+      <xs:element minOccurs="0" name="SuccessCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BulkAddressValidationReport" nillable="true" type="tns:BulkAddressValidationReport" />
+  <xs:complexType name="ConciergeResultOfLongRunningTaskStatusInfo">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="LongRunningTaskStatusInfo" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q70:LongRunningTaskStatusInfo" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfLongRunningTaskStatusInfo" nillable="true" type="tns:ConciergeResultOfLongRunningTaskStatusInfo" />
+  <xs:complexType name="ConciergeResultOfint">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ResultValue" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfint" nillable="true" type="tns:ConciergeResultOfint" />
+  <xs:complexType name="ConciergeResultOfLogiServerInformation">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="LogiServerInformation" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Types" minOccurs="0" name="ResultValue" nillable="true" type="q71:LogiServerInformation" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfLogiServerInformation" nillable="true" type="tns:ConciergeResultOfLogiServerInformation" />
+  <xs:complexType name="ConciergeResultOfReportDefinition">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ReportDefinition" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" minOccurs="0" name="ResultValue" nillable="true" type="q72:ReportDefinition" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfReportDefinition" nillable="true" type="tns:ConciergeResultOfReportDefinition" />
+  <xs:complexType name="ConciergeResultOfArrayOfPartialReportDefinition">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="ArrayOfPartialReportDefinition" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" minOccurs="0" name="ResultValue" nillable="true" type="q73:ArrayOfPartialReportDefinition" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfArrayOfPartialReportDefinition" nillable="true" type="tns:ConciergeResultOfArrayOfPartialReportDefinition" />
+  <xs:complexType name="ConciergeResultOfPartialReportDefinition">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="ConciergeResultOf{0}" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Results" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="PartialReportDefinition" Namespace="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ConciergeResult">
+        <xs:sequence>
+          <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/MemberSuite.SDK.Manifests.Command" minOccurs="0" name="ResultValue" nillable="true" type="q74:PartialReportDefinition" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ConciergeResultOfPartialReportDefinition" nillable="true" type="tns:ConciergeResultOfPartialReportDefinition" />
 </xs:schema>
