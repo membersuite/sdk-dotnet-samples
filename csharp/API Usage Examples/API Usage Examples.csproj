@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConciergeSampleBase.cs" />
+    <Compile Include="CreateCustomObject.cs" />
     <Compile Include="DeterminingMembershipStatus.cs" />
     <Compile Include="LoginToPortalAndPullMemberInformation.cs" />
     <Compile Include="SearchAndPullingObjectsWithSearchObjects.cs" />
