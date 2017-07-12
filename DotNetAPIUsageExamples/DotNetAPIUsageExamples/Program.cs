@@ -329,12 +329,12 @@ namespace DotNetAPIUsageExamples
                 var search = new Search { Type = "EventRegistration" };
                 search.AddOutputColumn("Event.Name");
                 search.AddOutputColumn("Name");
-                search.AddOutputColumn("CustomObject1__c"); //this object derrives from the EventRegistration Object
-                search.AddOutputColumn("CustomObject2__c"); //this object derrives from the EventRegistration Object
+                search.AddOutputColumn("CustomObject1__c"); //this object derives from the EventRegistration Object
+                search.AddOutputColumn("CustomObject2__c"); //this object derives from the EventRegistration Object
                 search.AddOutputColumn("Individual.FirstName");
                 search.AddOutputColumn("Individual.LastName");
                 search.AddOutputColumn("Individual.EmailAddress");
-                search.AddOutputColumn("Individual.CustomObject1__c"); //this object derrives from the Individual Object
+                search.AddOutputColumn("Individual.CustomObject1__c"); //this object derives from the Individual Object
                 search.AddOutputColumn("Order.BalanceDue");
 
                 var localID = 10009; //this represents the localID for the eventRegistration. You'll need to input a real ID for this to work
@@ -367,7 +367,7 @@ namespace DotNetAPIUsageExamples
             using(var api = ConciergeAPIProxyGenerator.GenerateProxy())
             {
                 var cusObjSearch = new Search("FakeCustomObject__c"); //You'll need to create your own objects for this to work
-                cusObjSearch.AddCriteria(Expr.Equals("Owner.LocalID", 101292)); //In this example, the FakeCustomObject derrives from the Individual Object. So we are using the Owner.Local to query the Individual's LocalID and get back a specific FakeCustomObject record
+                cusObjSearch.AddCriteria(Expr.Equals("Owner.LocalID", 101292)); //In this example, the FakeCustomObject derives from the Individual Object. So we are using the Owner.Local to query the Individual's LocalID and get back a specific FakeCustomObject record
                 var cusObjResult = api.GetObjectBySearch(cusObjSearch, null);
 
                 if (cusObjResult.ResultValue != null) //Update existing record
