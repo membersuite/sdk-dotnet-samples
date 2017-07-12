@@ -1,0 +1,6 @@
+C:\Users\bstrickland\Documents\Visual Studio 2013\Projects\DotNetAPIUsageExamples\DotNetAPIUsageExamples\bin\Debug\DotNetAPIUsageExamples.exe.config
+C:\Users\bstrickland\Documents\Visual Studio 2013\Projects\DotNetAPIUsageExamples\DotNetAPIUsageExamples\obj\Debug\DotNetAPIUsageExamples.csprojResolveAssemblyReference.cache
+C:\Users\bstrickland\Documents\Visual Studio 2013\Projects\DotNetAPIUsageExamples\DotNetAPIUsageExamples\bin\Debug\DotNetAPIUsageExamples.exe
+C:\Users\bstrickland\Documents\Visual Studio 2013\Projects\DotNetAPIUsageExamples\DotNetAPIUsageExamples\bin\Debug\DotNetAPIUsageExamples.pdb
+C:\Users\bstrickland\Documents\Visual Studio 2013\Projects\DotNetAPIUsageExamples\DotNetAPIUsageExamples\obj\Debug\DotNetAPIUsageExamples.exe
+C:\Users\bstrickland\Documents\Visual Studio 2013\Projects\DotNetAPIUsageExamples\DotNetAPIUsageExamples\obj\Debug\DotNetAPIUsageExamples.pdb
